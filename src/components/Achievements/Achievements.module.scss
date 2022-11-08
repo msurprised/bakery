@@ -1,0 +1,71 @@
+.achievContainer {
+  width: 100%;
+  margin-top: 90px;
+
+  @media screen and (max-width: 1140px) {
+    margin-top: 40px;
+  }
+}
+
+
+
+.achievContent {
+  font-size: 16px;
+  max-width: 1300px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  justify-items: center;
+
+  @media screen and (max-width: 1320px) {
+    width: 90%;
+  }
+
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: 480px) {
+    grid-template-columns: 1fr;
+    font-size: 12px;
+  }
+}
+
+.achievItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+}
+
+.achievTitle {
+  display: flex;
+  align-items: flex-end;
+  font-weight: 600;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.num {
+  font-size: 2.5rem;
+  color: #C9ADA7;
+  font-weight: bold;
+  margin-right: 10px;
+
+  @media screen and (max-width: 480px) {
+    font-size: 2rem;
+  }
+}
+
+.achievInfo {
+  text-align: center;
+  font-size: 0.9rem;
+}
