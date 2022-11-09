@@ -4,7 +4,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 1001;
+  z-index: 1003;
   color: #fff;
 }
 .rightNav {
@@ -17,7 +17,7 @@
 
 .mobileIcon {
   font-size: 30px;
-  margin-top: -2px;
+  margin-top: -5px;
   display: none;
 
   @media screen and (max-width: 1024px) {
@@ -34,21 +34,24 @@
   z-index: 1001;
   color: rgb(0, 0, 0);
   background-color: #fff;
+  z-index: 1002;
 }
 
-nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  height: 100%;
-  max-width: 1300px;
+.navMain {
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 100%;
+    max-width: 1300px;
 
-  @media screen and (max-width: 1450px) {
-    width: 90%;
+    @media screen and (max-width: 1450px) {
+      width: 90%;
+    }
   }
 }
 
@@ -73,7 +76,6 @@ nav {
   }
 
   &:hover {
-    opacity: 0.6;
     cursor: pointer;
   }
 }
@@ -97,13 +99,7 @@ nav {
     }
 
     &:hover {
-      opacity: 0.6;
-    }
-  }
-
-  img {
-    &:hover {
-      opacity: 0.6;
+      color: #c9ada7;
     }
   }
 }

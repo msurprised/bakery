@@ -18,7 +18,7 @@ const Ecology = () => {
   document.addEventListener('scroll', () => {
 
     const rowSecond = document.getElementById('ecology_2');
-    if (window.pageYOffset > rowSecond.getBoundingClientRect().top + 100) {
+    if (window.pageYOffset > rowSecond.getBoundingClientRect().top + 300) {
       setSecondRowDisplay(true)
     }
   })

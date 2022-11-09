@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import style from "./Navbar.module.scss";
 import { FiMenu } from "react-icons/fi";
+import { BsBag } from "react-icons/bs";
+import { SlUser } from "react-icons/sl";
 
-const Navbar = () => {
+const Navbar = (props) => {
   const [isNavScrolled, setIsNavScrolled] = useState(false);
 
   const checkScroll = () => {
@@ -17,7 +19,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={`${
+      className={`${style.navMain} ${
         isNavScrolled ? style.navContainerScroll : style.navContainer
       }`}
     >
@@ -33,32 +35,20 @@ const Navbar = () => {
         </div>
         <div className={style.rightSection}>
           <div className={style.rightNav}>
-          <ul >
-            <li>Home</li>
-            <li>About us</li>
-            <li>Shop</li>
-          </ul>
+            <ul>
+              <li>Home</li>
+              <li>About us</li>
+              <li>Shop</li>
+            </ul>
           </div>
           <ul>
             <li>
-              <img
-                width={25}
-                height={25}
-                src={`${isNavScrolled ? `/img/bag.png` : `img/bag_light.png`}`}
-                alt=""
-              />
+              <BsBag />
             </li>
             <li>
-              <img
-                width={25}
-                height={25}
-                src={`${
-                  isNavScrolled ? `/img/user.png` : `img/user_light.png`
-                }`}
-                alt=""
-              />
+              <SlUser/>
             </li>
-            <li className={style.mobileIcon}>
+            <li className={style.mobileIcon} onClick={props.toggle}>
               <FiMenu />
             </li>
           </ul>

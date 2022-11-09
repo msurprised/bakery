@@ -1,6 +1,6 @@
 import React from "react";
 import style from "./Footer.module.scss";
-import { SiYoutube, SiVk, SiTwitter, SiTelegram } from "react-icons/si";
+import Socials from "../Socials";
 
 const Footer = () => {
   return (
@@ -49,22 +49,9 @@ const Footer = () => {
             <a href="/">subscription rules</a>
           </div>
         </div>
-        <div className={style.socials}>
-          <ul>
-            <li>
-              <SiYoutube />
-            </li>
-            <li>
-              <SiVk />
-            </li>
-            <li>
-              <SiTwitter />
-            </li>
-            <li>
-              <SiTelegram />
-            </li>
-          </ul>
-        </div>
+
+        <Socials />
+
         <div className={style.footerPost}>
           <a href="mailto:bakery@bakery.ba">bakery@bakery.ba</a>
         </div>
