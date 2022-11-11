@@ -1,20 +1,39 @@
 import React from "react";
-import Socials from "../Socials";
+import { useSelector, useDispatch } from "react-redux";
+import { changeSidebarDisplay } from "../../store/sidebarSlice";
+
 import { Link } from "react-router-dom";
+
+import Socials from "../Socials";
 
 import style from "./Sidebar.module.scss";
 
-//contentHidden
+const Sidebar = () => {
+  const sidebarDisplay = useSelector((state) => state.sidebar.display);
+  const dispath = useDispatch();
 
-const Sidebar = (props) => {
   return (
-    <aside className={`${style.barContainer} ${props.sidebarDisplay ? '' : style.barHidden}`}>
-      <div className={`${style.contentWrap} ${props.sidebarDisplay ? '' : style.contentHidden}`}>
+    <aside
+      className={`${style.barContainer} ${
+        sidebarDisplay ? "" : style.barHidden
+      }`}
+    >
+      <div
+        className={`${style.contentWrap} ${
+          sidebarDisplay ? "" : style.contentHidden
+        }`}
+      >
         <nav className={style.topNav}>
           <ul>
-            <li onClick={props.toggle}><Link to='/'>Home</Link></li>
-            <li onClick={props.toggle}><Link to='/about'>About us</Link></li>
-            <li onClick={props.toggle}><Link to='/shop'>Shop</Link></li>
+            <Link to="/">
+              <li onClick={() => dispath(changeSidebarDisplay())}>Home</li>
+            </Link>
+            <Link to="/about">
+              <li onClick={() => dispath(changeSidebarDisplay())}>About us</li>
+            </Link>
+            <Link to="/shop">
+              <li onClick={() => dispath(changeSidebarDisplay())}>Shop</li>
+            </Link>
           </ul>
         </nav>
         <div className={style.bottomInfo}>

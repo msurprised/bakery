@@ -76,6 +76,22 @@
         "f f"
         "g g";
     }
+
+    button {
+      grid-area: g;
+      width: 100%;
+      height: 54px;
+      background-color: #c9ada7;
+      border: none;
+      font-size: 1.2rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.1s ease;
+
+      &:hover {
+        background-color: #dac5c0;
+      }
+    }
   }
 }
 
@@ -108,21 +124,6 @@
   }
 }
 
-button {
-  grid-area: g;
-  width: 100%;
-  height: 54px;
-  background-color: #c9ada7;
-  border: none;
-  font-size: 1.2rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: 0.1s ease;
-
-  &:hover {
-    background-color: #dac5c0;
-  }
-}
 .inputWrap {
   position: relative;
   width: 100%;
@@ -155,53 +156,53 @@ button {
 }
 
 .inputArrow {
-    position: absolute;
-    right: 20px;
-    top: calc(40%);
-    cursor: pointer;
-    rotate: 0;
-    transform-origin: 50% 20%;
-    font-size: 1.4rem;
-    transition: 0.3s ease;
+  position: absolute;
+  right: 20px;
+  top: calc(40%);
+  cursor: pointer;
+  rotate: 0;
+  transform-origin: 50% 20%;
+  font-size: 1.4rem;
+  transition: 0.3s ease;
 }
 
 .inputArrowActive {
-    rotate: 180deg;
+  rotate: 180deg;
 }
 
-.selectWrap{
-    margin-left: -1px;
-    width: 100%;
-    margin-top: 3px;
-    border: 1px solid #c9ada7;
-    background-color: #fff;
-    translate: 0 0;
-    opacity: 1;
-    visibility: visible;
-    transition: 0.2s ease;
-    z-index: 900;
+.selectWrap {
+  margin-left: -1px;
+  width: 100%;
+  margin-top: 3px;
+  border: 1px solid #c9ada7;
+  background-color: #fff;
+  translate: 0 0;
+  opacity: 1;
+  visibility: visible;
+  transition: 0.2s ease;
+  z-index: 900;
 }
 
 .selectWrapHidden {
-    opacity: 0;
-    visibility: hidden;
-    translate: 0 -10px;
+  opacity: 0;
+  visibility: hidden;
+  translate: 0 -10px;
 }
 
 .select {
-    padding-top: 15px;
-    padding-left: 15px;
-    height: 30px;
-    cursor: pointer;
-    color: #9a8c98;
-    font-size: 1rem;
+  padding-top: 15px;
+  padding-left: 15px;
+  height: 30px;
+  cursor: pointer;
+  color: #9a8c98;
+  font-size: 1rem;
 
-    &:hover {
-        color: #c9ada7;
-    }
+  &:hover {
+    color: #c9ada7;
+  }
 }
 
-.formInfo{
+.formInfo {
   width: 100%;
   text-align: center;
   font-size: 0.7rem;
@@ -209,7 +210,7 @@ button {
   display: flex;
   justify-content: center;
 
-  p{
+  p {
     width: 400px;
   }
 }

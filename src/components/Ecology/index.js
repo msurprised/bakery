@@ -1,27 +1,34 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import style from "./Ecology.module.scss";
 
 const Ecology = () => {
-
   const [firstRowDisplay, setFirstRowDisplay] = useState(false);
   const [secondRowDisplay, setSecondRowDisplay] = useState(false);
 
+  useEffect(() => {
+    const rowFirst = document.getElementById("ecology_1");
+    const rowSecond = document.getElementById("ecology_2");
 
-  document.addEventListener('scroll', () => {
+    const showRowFirst = () => {
+      if (window.pageYOffset > rowSecond.getBoundingClientRect().top + 200) {
+        setSecondRowDisplay(true);
+      }
+    };
 
-    const rowFirst = document.getElementById('ecology_1');
-    if (window.pageYOffset > rowFirst.getBoundingClientRect().top  + 200) {
-      setFirstRowDisplay(true)
-    }
-  })
+    const showRowSecond = () => {
+      if (window.pageYOffset > rowFirst.getBoundingClientRect().top + 200) {
+        setFirstRowDisplay(true);
+      }
+    };
 
-  document.addEventListener('scroll', () => {
+    document.addEventListener("scroll", showRowFirst);
+    document.addEventListener("scroll", showRowSecond);
 
-    const rowSecond = document.getElementById('ecology_2');
-    if (window.pageYOffset > rowSecond.getBoundingClientRect().top + 300) {
-      setSecondRowDisplay(true)
-    }
-  })
+    return () => {
+      document.removeEventListener("scroll", showRowFirst);
+      document.removeEventListener("scroll", showRowSecond);
+    };
+  }, []);
 
   return (
     <div className={style.ecoContainer}>
@@ -29,7 +36,12 @@ const Ecology = () => {
         <h2>BAKERY AND ECOLOGY</h2>
         <div className={style.content}>
           <img className={style.area1} src="/img/ecology_1.jpg" alt="ecology" />
-          <div className={` ${style.area2} ${style.contentRow} ${firstRowDisplay ? style.contentRowShowed : ''}`} id='ecology_1'>
+          <div
+            className={` ${style.area2} ${style.contentRow} ${
+              firstRowDisplay ? style.contentRowShowed : ""
+            }`}
+            id="ecology_1"
+          >
             <h3>Reducing the use of single-use packaging</h3>
             <ul>
               <li>replaced plastic appliances with wooden ones</li>
@@ -38,7 +50,12 @@ const Ecology = () => {
               <li>we offer guests free drinking water</li>
             </ul>
           </div>
-          <div className={`${style.area3} ${style.contentRow} ${secondRowDisplay ? style.contentRowShowed : ''}`} id='ecology_2'>
+          <div
+            className={`${style.area3} ${style.contentRow} ${
+              secondRowDisplay ? style.contentRowShowed : ""
+            }`}
+            id="ecology_2"
+          >
             <h3>The second life of things</h3>
             <ul>
               <li>glasses from wine bottles</li>
