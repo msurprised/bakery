@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import {changeSidebarDisplay} from '../../store/sidebarSlice';
+import { changeSidebarDisplay } from "../../store/sidebarSlice";
 import { Link } from "react-router-dom";
 
 import style from "./Navbar.module.scss";
@@ -12,7 +12,8 @@ import { SlUser } from "react-icons/sl";
 
 const Navbar = () => {
   const isNavAnimated = useSelector((state) => state.nav.animation);
-  const sidebarDisplay = useSelector(state => state.sidebar.display);
+  const sidebarDisplay = useSelector((state) => state.sidebar.display);
+  const totalPrice = useSelector((state) => state.cart.totalPrice);
 
   const dispath = useDispatch();
 
@@ -46,14 +47,18 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <ul>
-            <li>
+          <ul className={style.navIcons}>
+            <li className={style.price}>
+              <span>{totalPrice}</span>
               <BsBag />
             </li>
             <li>
               <SlUser />
             </li>
-            <li className={style.mobileIcon} onClick={() => dispath(changeSidebarDisplay())}>
+            <li
+              className={style.mobileIcon}
+              onClick={() => dispath(changeSidebarDisplay())}
+            >
               {sidebarDisplay ? <HiX /> : <FiMenu />}
             </li>
           </ul>

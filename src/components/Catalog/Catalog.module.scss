@@ -1,0 +1,105 @@
+.mainContainer {
+  padding-top: 60px;
+  height: fit-content;
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+  display: flex;
+
+  @media screen and (max-width: 1450px) {
+    width: 90%;
+  }
+}
+
+.filtersContainer {
+  height: fit-content;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  font-weight: 500;
+  font-size: 1.3rem;
+
+  ul {
+    list-style: none;
+    padding: 12px 0px 12px 0;
+    border-bottom: 1px solid rgb(171, 170, 170);
+    color: rgb(95, 94, 94);
+    font-size: 1.1rem;
+  }
+
+  li:not(:last-of-type) {
+    padding-bottom: 10px;
+  }
+}
+
+.filter {
+  padding: 12px 0px 12px 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgb(171, 170, 170);
+  cursor: pointer;
+
+  &:last-of-type{
+    border-bottom: none;
+    font-weight: 400;
+    font-size: 1.2rem;
+  }
+}
+
+.filterBtn {
+  margin-top: 15px;
+  padding-right: 10px;
+  transform-origin: 10px 6px;
+  transition: 0.1s ease;
+}
+
+.filterBtnRotated {
+  rotate: (180deg);
+}
+
+.selectorContainer {
+  display: none;
+
+  li {
+    cursor: pointer;
+
+    &:hover {
+      color: #c9ada7;
+    }
+  }
+}
+
+.selectorContainerVisible {
+  display: block;
+}
+
+.catalogContainer {
+  flex: 1;
+  margin-left: 40px;
+}
+
+.titleHeader {
+  font-size: 3rem;
+  font-weight: 500;
+  margin-bottom: -8px;
+  margin-right: 15px;
+}
+.catalogTitle {
+  display: flex;
+  align-items: flex-end;
+}
+
+.titleAmount {
+  color: rgb(171, 170, 170);
+}
+
+.itemsWrap {
+  width: 100%;
+  height: fit-content;
+  padding-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}

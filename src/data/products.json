@@ -1,0 +1,213 @@
+{
+  "update": "11.11.2022",
+  "items": [
+    {
+      "id": 1,
+      "category": "puff",
+      "name": "Cereal puff with tomatoes",
+      "price": 120,
+      "description": "Whole-grain puff with cream cheese and sun-dried tomatoes, with pumpkin, flax, sunflower and sesame seeds.",
+      "url": "/img/products/1.jpg"
+    },
+    {
+      "id": 2,
+      "category": "puff",
+      "name": "Puff with sea buckthorn and mascarpone",
+      "price": 140,
+      "description": "Mascarpone cheese puff garnished with sea buckthorn marmalade and crushed pistachios.",
+      "url": "/img/products/2.jpg"
+    },
+    {
+      "id": 3,
+      "category": "puff",
+      "name": "Croissant with cheese",
+      "price": 90,
+      "description": "Classic croissant with cheese.",
+      "url": "/img/products/3.jpg"
+    },
+    {
+      "id": 4,
+      "category": "puff",
+      "name": "Roll with rum and raisins",
+      "price": 100,
+      "description": "Puff pastry roll with rum and raisins.",
+      "url": "/img/products/4.jpg"
+    },
+    {
+      "id": 5,
+      "category": "puff",
+      "name": "Roll with cinnamon",
+      "price": 100,
+      "description": "Puff roll with cinnamon, decorated with cream cheese fudge and black sesame seeds.",
+      "url": "/img/products/5.jpg"
+    },
+    {
+      "id": 6,
+      "category": "puff",
+      "name": "Nut puff",
+      "price": 140,
+      "description": "Creamy whey puff with crushed hazelnuts and lemon fudge.",
+      "url": "/img/products/6.jpg"
+    },
+    {
+      "id": 7,
+      "category": "puff",
+      "name": "Tournelle with cheese and ham",
+      "price": 120,
+      "description": "Puff with cheese and ham.",
+      "url": "/img/products/7.jpg"
+    },
+    {
+      "id": 8,
+      "category": "puff",
+      "name": "Cream puff",
+      "price": 115,
+      "description": "Puff pastry basket with tender baked buttercream.",
+      "url": "/img/products/8.jpg"
+    },
+    {
+      "id": 9,
+      "category": "cookie",
+      "name": "Cupcake Maretta portioned",
+      "price": 150,
+      "description": "A combination of chocolate and classic cake with the addition of blackcurrants, raisins and hazelnuts.",
+      "url": "/img/products/9.jpg"
+    },
+    {
+      "id": 10,
+      "category": "cookie",
+      "name": "Сupcake lavender",
+      "price": 90,
+      "description": "Cake based on almond flour and lavender yoghurt, decorated with white chocolate and crushed lavender.",
+      "url": "/img/products/10.jpg"
+    },
+    {
+      "id": 11,
+      "category": "cookie",
+      "name": "Orange cupcake",
+      "price": 90,
+      "description": "Cake on almond flour with orange peel.",
+      "url": "/img/products/11.jpg"
+    },
+    {
+      "id": 12,
+      "category": "cookie",
+      "name": "Muffin Chocolate with cherry",
+      "price": 130,
+      "description": "Biscuit muffin with natural cocoa and cherry.",
+      "url": "/img/products/12.jpg"
+    },
+    {
+      "id": 13,
+      "category": "cookie",
+      "name": "Cookies Raisin/dark chocolate",
+      "price": 70,
+      "description": "Cookies with a soft layer of dark chocolate and raisins. There is one cookie in the package.",
+      "url": "/img/products/13.jpg"
+    },
+    {
+      "id": 14,
+      "category": "cookie",
+      "name": "Cranberry/white chocolate biscuits",
+      "price": 70,
+      "description": "Crumbly biscuits with white chocolate chips and dried cranberries. There is one cookie in the package.",
+      "url": "/img/products/14.jpg"
+    },
+    {
+      "id": 15,
+      "category": "bread",
+      "name": "Wheat bread",
+      "price": 110,
+      "description": "Wheat bread made by hand according to old recipes.",
+      "url": "/img/products/15.jpg"
+    },
+    {
+      "id": 16,
+      "category": "bread",
+      "name": "Dark bread",
+      "price": 120,
+      "description": "Rye-wheat bread on bio-sourdough.",
+      "url": "/img/products/16.jpg"
+    },
+    {
+      "id": 17,
+      "category": "bread",
+      "name": "Cereal loaf",
+      "price": 115,
+      "description": "Rye-wheat bread with sunflower seeds, prepared on rye bio-sourdough",
+      "url": "/img/products/17.jpg"
+    },
+    {
+      "id": 18,
+      "category": "bread",
+      "name": "Bread Piedmont",
+      "price": 130,
+      "description": "Rye-wheat grain bread, contains germinated grain.",
+      "url": "/img/products/18.jpg"
+    },
+    {
+      "id": 19,
+      "category": "bread",
+      "name": "Wheat loaf",
+      "price": 120,
+      "description": "Soft wheat loaf mixed with milk.",
+      "url": "/img/products/19.jpg"
+    },
+    {
+      "id": 20,
+      "category": "bread",
+      "name": "Grain bread",
+      "price": 120,
+      "description": "Rye-wheat bread with flax, sunflower and pumpkin seeds",
+      "url": "/img/products/20.jpg"
+    },
+    {
+      "id": 21,
+      "category": "cake",
+      "name": "Blueberry marzipan cake",
+      "price": 210,
+      "description": "Marzipan biscuits with cheese cream and a layer of blueberries.",
+      "url": "/img/products/21.jpg"
+    },
+    {
+      "id": 22,
+      "category": "cake",
+      "name": "Cake Le Santier",
+      "price": 230,
+      "description": "Cake based on poppy seed biscuit with passion fruit puree and cream cheese cream.",
+      "url": "/img/products/22.jpg"
+    },
+    {
+      "id": 23,
+      "category": "cake",
+      "name": "Cake Smetannik",
+      "price": 210,
+      "description": "Light cake with sour cream according to a homemade recipe.",
+      "url": "/img/products/23.jpg"
+    },
+    {
+      "id": 24,
+      "category": "cake",
+      "name": "Napoleon cake",
+      "price": 220,
+      "description": "Traditional puff pastry cake with custard.",
+      "url": "/img/products/24.jpg"
+    },
+    {
+      "id": 25,
+      "category": "cake",
+      "name": "Cheesecake Passion Fruit",
+      "price": 210,
+      "description": "Cream cheese cream topped with passion fruit puree on biscuit.",
+      "url": "/img/products/25.jpg"
+    },
+    {
+      "id": 26,
+      "category": "cake",
+      "name": "Pistachio-raspberry cake",
+      "price": 230,
+      "description": "Fresh berries and mousse made from natural pistachio paste on a sand crumb base.",
+      "url": "/img/products/26.jpg"
+    }
+  ]
+}

@@ -58,7 +58,7 @@ const Wholesale = () => {
                 inputSelected ? style.inputArrowActive : ""
               }`}
             >
-              ﹀{" "}
+              ﹀
             </div>
             <input required disabled value={inputValue} />
             <div
