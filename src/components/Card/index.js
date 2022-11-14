@@ -16,8 +16,6 @@ const Card = (props) => {
   };
 
   useEffect(() => {
-    console.log('checking cart');
-    console.log(cartItems.length)
     for (let cartItem of cartItems) {
       if (cartItem.id === props.item.id) {
         setIsOrdered(true);

@@ -1,0 +1,59 @@
+.mainContainer {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    background-color: #fff;
+    align-items: center;
+}
+
+.deleteBtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-weight: 800;
+    font-size: 0.7rem;
+    color: rgb(183, 183, 183);
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.6;
+    }
+}
+
+.imgWrap {
+    img {
+        width: 100%;
+    }
+}
+
+.infoWrap {
+    padding: 10px;
+}
+
+.title {
+    font-weight: 500;
+    width: 85%;
+    font-size: 0.95rem;
+}
+
+.info {
+    display: flex;
+    padding-top: 7px;
+    padding-right: 10px;
+    color: rgb(175, 174, 174);
+    font-size: 0.8rem;
+    font-weight: 600;
+     aside {
+        padding-right: 10px;
+     }
+}
+
+.price{
+    display: flex;
+    padding-top: 10px;
+    font-weight: 700;
+
+    aside {
+        padding-left: 3px;
+    }
+}

@@ -1,8 +1,10 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { changeSidebarDisplay } from "../../store/sidebarSlice";
+import { toggleCartDisplay } from "../../store/cartSlice";
 import { Link } from "react-router-dom";
 
+import CartVidget from "../CartVidget";
 import style from "./Navbar.module.scss";
 
 import { FiMenu } from "react-icons/fi";
@@ -14,6 +16,7 @@ const Navbar = () => {
   const isNavAnimated = useSelector((state) => state.nav.animation);
   const sidebarDisplay = useSelector((state) => state.sidebar.display);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
+  const isVidgetShowed = useSelector(state => state.cart.display);
 
   const dispath = useDispatch();
 
@@ -24,6 +27,7 @@ const Navbar = () => {
       }`}
     >
       <nav>
+        <CartVidget />
         <div className={style.leftNav}>
           <img
             width={30}
@@ -48,8 +52,9 @@ const Navbar = () => {
             </ul>
           </div>
           <ul className={style.navIcons}>
-            <li className={style.price}>
-              <span>{totalPrice}</span>
+            <li className={style.price}
+            onClick={() => dispath(toggleCartDisplay())}>
+              <div className={`${style.totalPrice} ${isVidgetShowed ? style.totalPriceHidden : ''}`}>{totalPrice}₽</div>
               <BsBag />
             </li>
             <li>

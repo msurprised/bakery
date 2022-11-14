@@ -11,7 +11,7 @@ import Shop from "./pages/Shop";
 
 const App = () => {
   return (
-    <div>
+    <div className='mainContainer'>
       <Navbar />
       <Sidebar />
       <main>

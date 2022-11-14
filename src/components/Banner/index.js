@@ -21,7 +21,7 @@ const Banner = () => {
             onMouseOver={changeArrowDisplay}
             onMouseOut={changeArrowDisplay}
           >
-            <div>Order delivery</div>
+            <div>Visit our shop</div>
             <div
               className={`${
                 isArrowShowed ? style.bannerPopupTrue : style.bannerPopupFalse

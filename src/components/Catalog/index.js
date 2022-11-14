@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import style from "./Catalog.module.scss";
 
 import Card from "../Card";
@@ -7,6 +7,7 @@ import dataBase from "../../data/products.json";
 const Catalog = () => {
   const [selectorDisplay, setSelectorDisplay] = useState(false);
   const [filter, setFilter] = useState("");
+  const [amount, setAmount] = useState(0);
 
   const toggle = () => {
     setSelectorDisplay(!selectorDisplay);
@@ -19,6 +20,16 @@ const Catalog = () => {
   const resetFilter = () => {
     setFilter("");
   };
+
+  useEffect(() => {
+    if (filter === "") {
+      setAmount(dataBase.items.length);
+    } else {
+      setAmount(
+        dataBase.items.filter((item) => item.category === filter).length
+      );
+    }
+  }, [filter]);
 
   return (
     <div className={style.mainContainer}>
@@ -53,8 +64,8 @@ const Catalog = () => {
       </div>
       <div className={style.catalogContainer}>
         <div className={style.catalogTitle}>
-          <div className={style.titleHeader}>header</div>
-          <div className={style.titleAmount}>items</div>
+          <div className={style.titleHeader}>{filter ? filter : 'all products'}</div>
+          <div className={style.titleAmount}>{amount} items</div>
         </div>
         <div className={style.itemsWrap}>
           {filter
