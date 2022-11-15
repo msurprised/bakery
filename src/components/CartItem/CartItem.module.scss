@@ -1,0 +1,94 @@
+.mainContainer {
+    position: relative;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 5fr;
+    background-color: #fff;
+    align-items: center;
+    height: 80px;
+    margin-bottom: 20px;
+
+    @media screen and (max-width: 1024px) {
+        height: 90px;
+    }
+    @media screen and (max-width: 768px) {
+        grid-template-columns: 1fr 8fr;
+    }
+}
+
+.deleteBtn {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    font-weight: 800;
+    font-size: 0.5rem;
+    color: rgb(183, 183, 183);
+    cursor: pointer;
+
+    &:hover {
+        opacity: 0.6;
+    }
+}
+
+.imgWrap {
+    height: 100%;
+
+    img {
+       width: 100%;
+
+    }
+
+    @media screen and (max-width: 1024px) {
+        width: 100px;
+    }
+}
+
+.infoWrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px;
+    height: 100%;
+}
+
+.infoRow {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    font-weight: 500;
+    width: 100%;
+    font-size: 1.2rem;
+
+    @media screen and (max-width: 768px) {
+        font-size: 1rem;
+        width: 80%;
+    }
+}
+
+.amountWrap {
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70px;
+    font-size: 1.2rem;
+}
+
+.amountBtn {
+    font-size: 1.6rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.price{
+    display: flex;
+    padding-top: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+
+    aside {
+        padding-left: 3px;
+    }
+}

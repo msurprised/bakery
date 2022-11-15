@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { toggleCartDisplay } from "../../store/cartSlice";
 
@@ -68,7 +69,7 @@ const CartVidget = () => {
           <div className={style.totalPrice}>{totalPrice}₽</div>
         </div>
         <div className={style.btnSection}>
-          <div className={style.cartBtn}>go to cart</div>
+          <Link  to ='/cart' className={style.cartBtn} onClick={() => dispatch(toggleCartDisplay())}>go to cart</Link>
           <div className={style.checkBtn}>checkout</div>
         </div>
       </div>

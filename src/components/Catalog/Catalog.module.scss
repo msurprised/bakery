@@ -76,6 +76,7 @@
 
 .selectorContainer {
   display: none;
+  cursor: pointer;
 
   li {
     list-style: none;
@@ -107,14 +108,14 @@
   margin-right: 15px;
 
   @media screen and (max-width: 500px) {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
 }
 .catalogTitle {
   display: flex;
   align-items: flex-end;
 
-  @media screen and (max-width: 500px) {
+  @media screen and (max-width: 600px) {
     display: block;
     margin-bottom: -20px;
   }
@@ -129,6 +130,8 @@
   display: none;
   font-size: 1.5rem;
   font-weight: 500;
+  cursor: pointer;
+
 
   aside {
     margin-right: 30px;
