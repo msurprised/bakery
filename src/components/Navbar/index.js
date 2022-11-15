@@ -27,7 +27,7 @@ const Navbar = () => {
       }`}
     >
       <nav>
-        <CartVidget />
+        {isVidgetShowed ? <CartVidget /> : null}
         <div className={style.leftNav}>
           <img
             width={30}
@@ -54,8 +54,9 @@ const Navbar = () => {
           <ul className={style.navIcons}>
             <li className={style.price}
             onClick={() => dispath(toggleCartDisplay())}>
-              <div className={`${style.totalPrice} ${isVidgetShowed ? style.totalPriceHidden : ''}`}>{totalPrice}₽</div>
-              <BsBag />
+              {totalPrice > 0 ? <div className={`${style.totalPrice} ${isVidgetShowed ? style.totalPriceHidden : ''}`}>{totalPrice}₽</div> : null }
+              
+              <div className={`${totalPrice > 0 ? style.bagFilled : ''}`}><BsBag /></div>
             </li>
             <li>
               <SlUser />

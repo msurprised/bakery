@@ -1,19 +1,24 @@
 .mainContainer {
-  padding-top: 30px;
+  margin-top: 30px;
   height: fit-content;
   width: 100%;
   max-width: 1300px;
-  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
+  justify-items: center;
 
   @media screen and (max-width: 1450px) {
     width: 90%;
+  }
+  @media screen and (max-width: 500px) {
+    margin-top: 0px;
   }
 }
 
 .filtersContainer {
   height: fit-content;
-  width: 240px;
+  width: 200px;
   display: flex;
   flex-direction: column;
   font-weight: 500;
@@ -21,35 +26,45 @@
 
   ul {
     list-style: none;
-    padding: 12px 0px 12px 0;
+    padding: 12px 0px 22px 0;
+    margin-bottom: 10px;
     border-bottom: 1px solid rgb(171, 170, 170);
     color: rgb(95, 94, 94);
     font-size: 1.1rem;
   }
 
   li:not(:last-of-type) {
-    padding-bottom: 10px;
+    padding-bottom: 20px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    display: none;
   }
 }
 
 .filter {
-  padding: 12px 0px 12px 0;
+  padding: 12px 0px 2px 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
+  margin-bottom: 10px;
   border-bottom: 1px solid rgb(171, 170, 170);
   cursor: pointer;
 
-  &:last-of-type{
+  &:last-of-type {
     border-bottom: none;
     font-weight: 400;
     font-size: 1.2rem;
   }
 }
 
+.filterName {
+  padding-right: 40px;
+  margin-top: -10px;
+}
+
 .filterBtn {
-  margin-top: 15px;
   padding-right: 10px;
   transform-origin: 10px 6px;
   transition: 0.1s ease;
@@ -63,6 +78,7 @@
   display: none;
 
   li {
+    list-style: none;
     cursor: pointer;
 
     &:hover {
@@ -76,8 +92,12 @@
 }
 
 .catalogContainer {
-  flex: 1;
+  width: 100%;
   margin-left: 40px;
+
+  @media screen and (max-width: 1024px) {
+    margin-left: 0px;
+  }
 }
 
 .titleHeader {
@@ -85,21 +105,94 @@
   font-weight: 500;
   margin-bottom: -8px;
   margin-right: 15px;
+
+  @media screen and (max-width: 500px) {
+    font-size: 2rem;
+  }
 }
 .catalogTitle {
   display: flex;
   align-items: flex-end;
+
+  @media screen and (max-width: 500px) {
+    display: block;
+    margin-bottom: -20px;
+  }
 }
 
 .titleAmount {
+  margin-top: 10px;
   color: rgb(171, 170, 170);
+}
+
+.filterBtnWrap {
+  display: none;
+  font-size: 1.5rem;
+  font-weight: 500;
+
+  aside {
+    margin-right: 30px;
+    margin-top: -22px;
+    font-size: 1.2rem;
+  }
+
+  @media screen and (max-width: 1024px) {
+    display: flex;
+    align-items: center;
+    margin-top: -15px;
+    justify-content: flex-end;
+  }
+}
+
+.mobileSelector {
+  display: none;
+
+  ul {
+    list-style: none;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    padding-top: 20px;
+    font-size: 1.2rem;
+    font-weight: 500;
+
+    li {
+      cursor: pointer;
+      color: rgb(184, 184, 184);
+
+      &:hover {
+        color: #c9ada7;
+      }
+    }
+  }
+}
+
+.mobileSelectorVisible {
+  display: block;
+
+  @media screen and (min-width: 1025px) {
+    display: none;
+  }
 }
 
 .itemsWrap {
   width: 100%;
+  justify-items: center;
   height: fit-content;
   padding-top: 20px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
+
+  @media screen and (max-width: 1300px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media screen and (max-width: 860px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media screen and (max-width: 535px) {
+    grid-template-columns: 1fr;
+  }
 }

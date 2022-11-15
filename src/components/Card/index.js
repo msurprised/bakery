@@ -16,21 +16,23 @@ const Card = (props) => {
   };
 
   useEffect(() => {
-    for (let cartItem of cartItems) {
-      if (cartItem.id === props.item.id) {
-        setIsOrdered(true);
-        return
-      } else {
-        setIsOrdered(false);
+    if (cartItems.length === 0) {
+      setIsOrdered(false);
+    } else {
+      for (let cartItem of cartItems) {
+        if (cartItem.id === props.item.id) {
+          setIsOrdered(true);
+          return;
+        } else {
+          setIsOrdered(false);
+        }
       }
     }
-  }, [props.item, cartItems]);
+  }, [cartItems, props.item]);
 
   return (
     <div className={style.mainContainer}>
-      <div className={style.description}>
-        {props.item.description}
-      </div>
+      <div className={style.description}>{props.item.description}</div>
       <div className={style.imgWrap}>
         <img src={props.item.url} alt={props.item.name} />
       </div>

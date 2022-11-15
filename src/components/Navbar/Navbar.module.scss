@@ -94,6 +94,10 @@
     display: flex;
     margin-left: 50px;
     font-size: 20px;
+
+    @media screen and (max-width:400px) {
+      margin-left: 0;
+    }
   }
 
   li {
@@ -131,7 +135,6 @@
   translate: 0;
   transition: opacity 0.2s ease, translate 0.2s ease;
   display: flex;
-
 }
 
 .totalPriceHidden {
@@ -139,4 +142,35 @@
   visibility: hidden;
   opacity: 0;
   transition: 0.2s ease;
+}
+
+.bagFilled {
+
+  @keyframes jump {
+    0% {
+      translate: 0 0;
+      color: #c9ada7;
+    }
+    25% {
+      translate: 0 -10px;
+      color: #c9ada7;
+
+    }
+    50% {
+      translate: 0 5px;
+      color: #c9ada7;
+
+    }
+    75% {
+      translate: 0 -10px;
+      color: #c9ada7;
+
+    }
+    100% {
+      translate: 0 0;
+      color: #000;
+    }
+  }
+
+  animation: jump 0.5s;
 }

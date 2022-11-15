@@ -64,8 +64,34 @@ const Catalog = () => {
       </div>
       <div className={style.catalogContainer}>
         <div className={style.catalogTitle}>
-          <div className={style.titleHeader}>{filter ? filter : 'all products'}</div>
+          <div className={style.titleHeader}>
+            {filter ? filter : "all products"}
+          </div>
           <div className={style.titleAmount}>{amount} items</div>
+        </div>
+        <div className={style.filterBtnWrap}
+        onClick={toggle}>
+          <aside>category</aside>
+          <div
+            className={`${style.filterBtn} ${
+              selectorDisplay ? style.filterBtnRotated : ""
+            }`}
+          >
+            ﹀
+          </div>
+        </div>
+        <div
+          className={`${style.mobileSelector} ${
+            selectorDisplay ? style.mobileSelectorVisible : ""
+          }`}
+        >
+          <ul>
+            <li onClick={resetFilter}>all</li>
+            <li onClick={chooseFilter}>cake</li>
+            <li onClick={chooseFilter}>cookie</li>
+            <li onClick={chooseFilter}>bread</li>
+            <li onClick={chooseFilter}>puff</li>
+          </ul>
         </div>
         <div className={style.itemsWrap}>
           {filter
