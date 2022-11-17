@@ -1,0 +1,64 @@
+{
+  "adresses": [
+    {
+      "id": 1,
+      "adress": [59.9, 30.31],
+      "name": "adress 1"
+    },
+    {
+      "id": 2,
+      "adress": [59.92, 30.29],
+      "name": "adress 2"
+    },
+    {
+      "id": 3,
+      "adress": [59.93, 30.34],
+      "name": "adress 3"
+    },
+    {
+      "id": 4,
+      "adress": [59.94, 30.25],
+      "name": "adress 4"
+    },
+    {
+      "id": 5,
+      "adress": [59.95, 30.26],
+      "name": "adress 5"
+    },
+    {
+      "id": 6,
+      "adress": [59.96, 30.32],
+      "name": "adress 6"
+    },
+    {
+      "id": 7,
+      "adress": [59.89, 30.31],
+      "name": "adress 7"
+    },
+    {
+      "id": 8,
+      "adress": [59.98, 30.29],
+      "name": "adress 8"
+    },
+    {
+      "id": 9,
+      "adress": [59.92, 30.31],
+      "name": "adress 9"
+    },
+    {
+      "id": 10,
+      "adress": [59.9, 30.22],
+      "name": "adress 10"
+    },
+    {
+      "id": 11,
+      "adress": [59.92, 30.27],
+      "name": "adress 11"
+    },
+    {
+      "id": 12,
+      "adress": [59.93, 30.31],
+      "name": "adress 12"
+    }
+  ]
+}

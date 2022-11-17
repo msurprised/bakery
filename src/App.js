@@ -9,6 +9,7 @@ import Sidebar from "../src/components/Sidebar";
 import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
+import Order from "./pages/Order";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="/about" element={<Shop />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/cart" element={<Cart/>} />
+          <Route path="/order" element={<Order/>} />
         </Routes>
       </main>
       <Footer />

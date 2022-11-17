@@ -3,7 +3,7 @@ import style from "./Wholesale.module.scss";
 
 const Wholesale = () => {
   const [inputSelected, setInputSelected] = useState(false);
-  const [inputValue, setInputValue] = useState("choose any");
+  const [inputValue, setInputValue] = useState("");
 
   const toggle = () => {
     setInputSelected(!inputSelected);
@@ -29,30 +29,60 @@ const Wholesale = () => {
         </p>
         <form>
           <div className={`${style.inputWrap} ${style.item_1}`}>
-            <label>your name</label>
-            <input type="text" placeholder="Ann" required />
+            <label htmlFor="name">your name</label>
+            <input
+              name="name"
+              id="name"
+              type="text"
+              placeholder="Ann"
+              required
+            />
           </div>
           <div className={`${style.inputWrap} ${style.item_2}`}>
-            <label>e-mail</label>
-            <input type="email" placeholder="bakery@bakery.ba" required />
+            <label htmlFor="email">e-mail</label>
+            <input
+              name="email"
+              id="email"
+              type="email"
+              placeholder="bakery@bakery.ba"
+              required
+            />
           </div>
           <div className={`${style.inputWrap} ${style.item_3}`}>
-            <label>phone</label>
-            <input type="tel" placeholder="+00000000000" required />
+            <label htmlFor="tel">phone</label>
+            <input
+              name="tel"
+              id="tel"
+              type="tel"
+              placeholder="+00000000000"
+              required
+            />
           </div>
           <div className={`${style.inputWrap} ${style.item_4}`}>
-            <label>company</label>
-            <input type="text" placeholder="Bakery" required />
+            <label htmlFor="company">company</label>
+            <input
+              name="company"
+              id="company"
+              type="text"
+              placeholder="Bakery"
+              required
+            />
           </div>
           <div className={`${style.inputWrap} ${style.item_5}`}>
-            <label>field of activity</label>
-            <input type="text" placeholder="Baking croissants" required />
+            <label htmlFor="activity">field of activity</label>
+            <input
+              name="activity"
+              id="activity"
+              type="text"
+              placeholder="Baking croissants"
+              required
+            />
           </div>
           <div
             className={`${style.inputWrap} ${style.item_6}`}
             onClick={toggle}
           >
-            <label>category</label>
+            <label htmlFor="category">category</label>
             <div
               className={`${style.inputArrow} ${
                 inputSelected ? style.inputArrowActive : ""
@@ -60,7 +90,14 @@ const Wholesale = () => {
             >
               ﹀
             </div>
-            <input required disabled value={inputValue} />
+            <input
+              required
+              name="category"
+              id="category"
+              value={inputValue}
+              onChange={() => setInputValue(inputValue)}
+              placeholder="choose category"
+            />
             <div
               className={`${style.selectWrap} ${
                 inputSelected ? "" : style.selectWrapHidden
@@ -74,12 +111,13 @@ const Wholesale = () => {
               </div>
             </div>
           </div>
-          <button>send</button>
+          <button type="submit">send</button>
         </form>
         <div className={style.formInfo}>
           <p>
-            By clicking on the "send" button, you agree to <a href="/">the terms of the
-            offer</a> and agree to the processing of your personal data.
+            By clicking on the "send" button, you agree to{" "}
+            <a href="/">the terms of the offer</a> and agree to the processing
+            of your personal data.
           </p>
         </div>
       </div>

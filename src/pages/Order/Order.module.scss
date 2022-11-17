@@ -1,0 +1,32 @@
+.mainContainer {
+  width: 100%;
+  margin-top: 100px;
+  margin-bottom: 20px;
+  min-height: 800px;
+}
+
+.contentWrap {
+  width: 100%;
+  max-width: 800px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 4fr 3fr;
+
+  @media screen and (max-width: 1450px) {
+    width: 90%;
+  }
+}
+
+.orderForm {
+  position: relative;
+  p {
+    color: #9a8c98;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  a {
+    color: #c9ada7;
+  }
+}
+

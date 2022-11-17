@@ -80,6 +80,10 @@
     font-size: 1.6rem;
     font-weight: 500;
     cursor: pointer;
+
+    &:active {
+        color: rgb(183, 183, 183);
+    }
 }
 
 .price{

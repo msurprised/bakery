@@ -39,13 +39,21 @@ const Cart = () => {
             <div className={style.totalTitle}>total</div>
             <div className={style.priceWrap}>
               <aside>order price</aside>
-              <div className={style.price}>{totalPrice}₽</div>
+              <div className={style.price}>
+                {totalPrice}
+                <aside>₽</aside>
+              </div>
             </div>
             <div className={style.priceWrap}>
               <aside>total price</aside>
-              <div className={style.price}>{totalPrice}₽</div>
+              <div className={style.price}>
+                {totalPrice}
+                <aside>₽</aside>
+              </div>
             </div>
-            <button>checkout</button>
+            <Link to="/order">
+              <button>checkout</button>
+            </Link>
           </div>
         </div>
       </div>
