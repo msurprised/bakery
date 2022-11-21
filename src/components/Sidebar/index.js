@@ -28,9 +28,6 @@ const Sidebar = () => {
             <Link to="/">
               <li onClick={() => dispath(changeSidebarDisplay())}>Home</li>
             </Link>
-            <Link to="/about">
-              <li onClick={() => dispath(changeSidebarDisplay())}>About us</li>
-            </Link>
             <Link to="/shop">
               <li onClick={() => dispath(changeSidebarDisplay())}>Shop</li>
             </Link>

@@ -80,7 +80,7 @@ const Wholesale = () => {
           </div>
           <div
             className={`${style.inputWrap} ${style.item_6}`}
-            onClick={toggle}
+            
           >
             <label htmlFor="category">category</label>
             <div
@@ -96,6 +96,8 @@ const Wholesale = () => {
               id="category"
               value={inputValue}
               onChange={() => setInputValue(inputValue)}
+              onFocus={toggle}
+              onBlur={toggle}
               placeholder="choose category"
             />
             <div

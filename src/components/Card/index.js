@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import style from "./Card.module.scss";
 import { useSelector, useDispatch } from "react-redux";
 import { additemToCart } from "../../store/cartSlice";
+import { setDescriptionItem } from "../../store/descriptionSlice";
 
 import { BsBagPlus, BsBagCheck } from "react-icons/bs";
+import { BsInfoCircle } from "react-icons/bs";
 
 const Card = (props) => {
   const [isOrdered, setIsOrdered] = useState(false);
@@ -13,6 +15,10 @@ const Card = (props) => {
 
   const addItemToCartStorage = () => {
     dispatch(additemToCart(props.item));
+  };
+
+  const handleInfoClick = () => {
+    dispatch(setDescriptionItem(props.item));
   };
 
   useEffect(() => {
@@ -32,15 +38,20 @@ const Card = (props) => {
 
   return (
     <div className={style.mainContainer}>
-      <div className={style.description}>{props.item.description}</div>
       <div className={style.imgWrap}>
+        <div className={style.infoBtn} onClick={handleInfoClick}>
+          <BsInfoCircle />
+        </div>
         <img src={props.item.url} alt={props.item.name} />
       </div>
       <div className={style.cardInfo}>
         <div className={style.cardName}>{props.item.name}</div>
-        <div className={style.cardPrice}>
-          <div className={style.priceValue}>{props.item.price}</div>
-          <div className={style.priceСurrency}>₽</div>
+        <div className={style.infoLeft}>
+          <div className={style.cardPrice}>
+            <div className={style.priceValue}>{props.item.price}</div>
+            <div className={style.priceСurrency}>₽</div>
+          </div>
+          <div className={style.weight}> {props.item.weight}g</div>
         </div>
       </div>
       <div

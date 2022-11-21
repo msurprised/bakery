@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 
 import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
@@ -12,9 +12,18 @@ import style from "./Form.module.scss";
 import adresses from "../../data/addresses.json";
 
 const OrderForm = () => {
-  const [adress, setAdress] = useState("");
-  const [day, setDay] = React.useState(dayjs());
-  const [time, setTime] = useState("");
+  const [order, setOrder] = useState({
+    adress: "",
+    name: "",
+    tel: "",
+    email: "",
+    day: dayjs(),
+    time: "",
+    soon: "",
+    needCall: false,
+    lessPack: false,
+    comment: "",
+  });
 
   const [adressInputSelected, setAdressInputSelected] = useState(false);
   const [datePickerDisplay, setDatePickerDisplay] = useState(true);
@@ -36,24 +45,69 @@ const OrderForm = () => {
   };
 
   const selectAdressInputValue = (event) => {
-    setAdress(event.target.textContent);
-    toggleAdressSelector();
+    setOrder((prev) => ({ ...prev, adress: event.target.textContent }));
+    setAdressInputSelected(false);
   };
 
   const seletTimeInputValue = (event) => {
-    setTime(event.target.textContent);
-    setTimeInputSelected();
+    setOrder((prev) => ({ ...prev, time: event.target.textContent }));
+    setTimeInputSelected(false);
   };
 
   const resetAdress = () => {
-    setAdress("");
+    setOrder((prev) => ({ ...prev, adress: "" }));
   };
+
+  const handleName = (event) => {
+    setOrder((prev) => ({ ...prev, name: event.target.value }));
+  };
+
+  const handleTel = (event) => {
+    setOrder((prev) => ({ ...prev, tel: event.target.value }));
+  };
+
+  const handleEmail = (event) => {
+    setOrder((prev) => ({ ...prev, email: event.target.value }));
+  };
+
+  const handleSoon = (event) => {
+    setOrder((prev) => ({ ...prev, soon: event.target.value }));
+  };
+
+  const handleDay = (event) => {
+    setOrder((prev) => ({ ...prev, day: event.target.value }));
+  };
+  const handleTime = (event) => {
+    setOrder((prev) => ({ ...prev, time: event.target.value }));
+  };
+
+  const handleComment = (event) => {
+    setOrder((prev) => ({ ...prev, comment: event.target.value }));
+  };
+
+  const handleNeedCall = (event) => {
+    setOrder((prev) => ({ ...prev, needCall: event.target.checked }));
+  };
+
+  const handleLessPack = (event) => {
+    setOrder((prev) => ({ ...prev, lessPack: event.target.checked }));
+  };
+
+  const handleAdress = (event) => {
+    setOrder((prev) => ({ ...prev, adress: event.target.value }));
+  };
+
+  const sendForm = (event) => {};
 
   const theme = createTheme({
     palette: {
       primary: { main: "#c9ada7" },
     },
   });
+
+  useEffect(() => {
+    console.log(order);
+  }, [order]);
 
   return (
     <div className={style.mainContainer}>
@@ -70,27 +124,27 @@ const OrderForm = () => {
           modules={["control.ZoomControl"]}
           options={{ autoFitToViewport: "" }}
         >
-          {!adress
+          {!order.adress
             ? adresses.adresses.map((adress) => (
                 <Placemark
                   key={adress.id}
                   defaultGeometry={adress.adress}
                   modules={["geoObject.addon.balloon"]}
                   defaultProperties={{
-                    balloonContentBody: adress.name,
+                    balloonContentBody: `<h2>${adress.name}</h2>`,
                   }}
                   options={{ iconColor: "#c9ada7" }}
                 />
               ))
             : adresses.adresses
-                .filter((item) => item.name === adress)
+                .filter((item) => item.name === order.adress)
                 .map((adress) => (
                   <Placemark
                     key={adress.id}
                     defaultGeometry={adress.adress}
                     modules={["geoObject.addon.balloon"]}
-                    defaultProperties={{
-                      balloonContentBody: adress.name,
+                    properties={{
+                      balloonContentBody: `<h2>${adress.name}</h2>`,
                     }}
                     options={{ iconColor: "#c9ada7" }}
                   />
@@ -101,7 +155,6 @@ const OrderForm = () => {
       <form>
         <div
           className={`${style.inputWrap} ${style.CP}`}
-          onClick={toggleAdressSelector}
         >
           <label htmlFor="adress">adress</label>
           <div
@@ -114,10 +167,12 @@ const OrderForm = () => {
           <input
             required
             name="adress"
-            value={adress}
+            value={order.adress}
             id="adress"
             placeholder="select bakery"
-            onChange={() => setAdress(adress)}
+            onFocus={toggleAdressSelector}
+            onBlur={toggleAdressSelector}
+            onChange={handleAdress}
           />
         </div>
         <div
@@ -147,6 +202,7 @@ const OrderForm = () => {
               name="soon"
               value="fast"
               onClick={() => setDatePickerDisplay(false)}
+              onChange={handleSoon}
             />
             <label htmlFor="fast">As soon as possible</label>
           </div>
@@ -158,6 +214,7 @@ const OrderForm = () => {
               value="exact"
               defaultChecked
               onClick={() => setDatePickerDisplay(true)}
+              onChange={handleSoon}
             />
             <label htmlFor="exact">exact time</label>
           </div>
@@ -167,16 +224,15 @@ const OrderForm = () => {
               datePickerDisplay ? style.datePicker : style.datePickerHidden
             }`}
           >
-            <div
-              className={`${style.inputWrap} ${style.CP}`}
-              onClick={toggleDaySelector}
-            >
+            <div className={`${style.inputWrap} ${style.CP}`}>
               <input
                 name="day"
                 type="text"
                 id="day"
-                value={day.format("DD.MM.YYYY")}
-                onChange={() => setDay(day)}
+                value={order.day.format("DD.MM.YYYY")}
+                onChange={handleDay}
+                onFocus={toggleDaySelector}
+                onBlur={toggleDaySelector}
                 required={datePickerDisplay}
               />
               <label htmlFor="day">date</label>
@@ -192,9 +248,9 @@ const OrderForm = () => {
                   <StaticDatePicker
                     displayStaticWrapperAs="desktop"
                     openTo="day"
-                    value={day}
+                    value={order.day}
                     onChange={(newValue) => {
-                      setDay(newValue);
+                      setOrder((prev) => ({ ...prev, day: newValue }));
                       toggleDaySelector();
                     }}
                   />
@@ -209,15 +265,16 @@ const OrderForm = () => {
           >
             <div
               className={`${style.inputWrap} ${style.CP}`}
-              onClick={toggleTimeSelector}
             >
               <input
                 name="time"
                 type="text"
-                value={time}
-                onChange={() => setTime(time)}
+                value={order.time}
+                onChange={handleTime}
+                onFocus={toggleTimeSelector}
+                onBlur={toggleTimeSelector}
                 id="time"
-                placeholder="select interval"
+                placeholder="set interval"
                 required={datePickerDisplay}
               />
               <label htmlFor="time">time</label>
@@ -258,31 +315,73 @@ const OrderForm = () => {
         <div className={style.sectionTitle}>your data</div>
         <div className={style.personSectionWrap}>
           <div className={style.inputWrap}>
-            <input name="name" type="text" required id="name" />
+            <input
+              name="name"
+              value={order.name}
+              onChange={handleName}
+              type="text"
+              required
+              id="name"
+              placeholder="name"
+            />
             <label htmlFor="name">name</label>
           </div>
           <div className={style.inputWrap}>
-            <input name="tel" type="tel" required id="tel" />
+            <input
+              name="tel"
+              value={order.tel}
+              onChange={handleTel}
+              type="tel"
+              required
+              id="tel"
+              placeholder="phone"
+            />
             <label htmlFor="tel">phone</label>
           </div>
           <div className={style.inputWrap}>
-            <input name="email" type="email" required id="email" />
+            <input
+              name="email"
+              value={order.email}
+              onChange={handleEmail}
+              type="email"
+              required
+              id="email"
+              placeholder="email"
+            />
             <label htmlFor="email">email</label>
           </div>
         </div>
         <div className={style.sectionTitle}>other</div>
         <div className={style.personSectionWrap}>
           <div className={style.inputWrap}>
-            <textarea id="comment" />
+            <textarea
+              id="comment"
+              value={order.comment}
+              onChange={handleComment}
+              name="comment"
+              placeholder="order comment"
+            />
             <label htmlFor="comment">order comment</label>
           </div>
           <div className={style.options}>
             <div>
-              <input name="need_call" type="checkbox" id="call" />
+              <input
+                name="need_call"
+                type="checkbox"
+                id="call"
+                checked={order.needCall}
+                onChange={handleNeedCall}
+              />
               <label htmlFor="call">call to confirm order</label>
             </div>
             <div>
-              <input name="less_pack" type="checkbox" id="lessPack" />
+              <input
+                name="less_pack"
+                type="checkbox"
+                id="lessPack"
+                checked={order.lessPack}
+                onChange={handleLessPack}
+              />
               <label htmlFor="lessPack">less packaging</label>
             </div>
           </div>
@@ -296,7 +395,9 @@ const OrderForm = () => {
             <aside>total</aside>
             <div className={style.priceWrap}>{totalPrice}₽</div>
           </div>
-          <button type="submit">checkout</button>
+          <div className={style.sendBtn} onClick={sendForm}>
+            checkout
+          </div>
           <p>
             By clicking the "checkout" button, I give my consent to the
             processing of my personal data, in accordance with the federal law

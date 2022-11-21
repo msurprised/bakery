@@ -6,6 +6,7 @@ const cartSlice = createSlice({
     cartItems: [],
     totalPrice: 0,
     display: false,
+    cutlery: 1,
   },
   reducers: {
     additemToCart(state, action) {
@@ -43,10 +44,24 @@ const cartSlice = createSlice({
         state.totalPrice -= foundItem.price;
       }
     },
+    addCutlery(state) {
+      state.cutlery += 1;
+    },
+    reduceCutlery(state) {
+      if (state.cutlery === 1) return;
+
+      state.cutlery -= 1;
+    },
   },
 });
 
 export default cartSlice.reducer;
 
-export const { additemToCart, toggleCartDisplay, deleteItemFromVidget, deleteItemFromCart } =
-  cartSlice.actions;
+export const {
+  additemToCart,
+  toggleCartDisplay,
+  deleteItemFromVidget,
+  deleteItemFromCart,
+  addCutlery,
+  reduceCutlery
+} = cartSlice.actions;

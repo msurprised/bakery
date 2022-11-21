@@ -8,22 +8,22 @@ const Socials = () => {
     <div className={style.socials}>
       <ul>
         <li>
-          <a target='_blank' href="https://www.youtube.com/">
+          <a target='_blank' rel="noreferrer" href="https://www.youtube.com/">
             <SiYoutube />
           </a>
         </li>
         <li>
-          <a target='_blank' href="https://vk.com/">
+          <a target='_blank' rel="noreferrer" href="https://vk.com/">
             <SiVk />
           </a>
         </li>
         <li>
-          <a target='_blank' href="https://twitter.com/">
+          <a target='_blank' rel="noreferrer" href="https://twitter.com/">
             <SiTwitter />
           </a>
         </li>
         <li>
-          <a target='_blank' href="https://telegram.org/">
+          <a target='_blank' rel="noreferrer" href="https://telegram.org/">
             <SiTelegram />
           </a>
         </li>

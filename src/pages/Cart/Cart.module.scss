@@ -1,3 +1,5 @@
+@import '../../config.scss';
+
 .mainContainer {
   width: 100%;
   padding-top: 100px;
@@ -22,10 +24,10 @@
   justify-content: space-around;
 
   a {
-    color: #c9ada7;
+    color: $primary;
     font-weight: 500;
     font-size: 1.2rem;
-    border-bottom: #c9ada7 1px dotted;
+    border-bottom: $primary 1px dotted;
   }
 }
 
@@ -91,7 +93,7 @@ h1 {
     transition: 0.2s ease;
 
     &:hover {
-      color: #c9ada7;
+      color: $secondary;
     }
 
     @media screen and (max-width: 1024px) {
@@ -131,14 +133,14 @@ h1 {
     height: 40px;
     margin-top: -1px;
     border: none;
-    background-color: #c9ada7;
+    background-color: $primary;
     cursor: pointer;
     font-weight: 500;
     transition: 0.2s ease;
     margin-bottom: 20px;
 
     &:hover {
-      background-color: #d7c0bb;
+      background-color: $secondary;
     }
   }
 }

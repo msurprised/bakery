@@ -1,8 +1,9 @@
+@import '../../config.scss';
+
 .mainContainer {
   position: relative;
   width: 230px;
   height: fit-content;
-  // margin-bottom: 20px;
   border: 1px solid rgb(231, 229, 229);
   position: relative;
   transition: 0.3s ease;
@@ -13,29 +14,25 @@
   }
 }
 
-.description {
+.infoBtn {
   position: absolute;
-  opacity: 0;
   top:0;
   left: 0;
-  padding: 10px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  width: 210px;
-  height: 141px;
+  align-items: flex-start;
+  justify-content: right;
+  width: 200px;
+  height: 130px;
   font-weight: 500;
-  background-color: rgba($color: #000000, $alpha: 0.5);
-  font-size: 0.8rem;
-  color: rgba(0, 0, 0, 0.5);
+  font-size: 1.2rem;
+  color: rgba(0, 0, 0, 0.1);
+  padding: 15px 15px;
   cursor: pointer;
-  transition: opacity 0.2s ease-in-out, color 0.6s ease;
-
+  z-index: 100;
+  transition: opacity 0.4s ease-in-out, color 0.6s ease;
+  
   &:hover {
-    opacity: 1;
-    color: #fff;
-
+    color: $primary;
   }
 }
 
@@ -44,10 +41,19 @@
   height: 160px;
   overflow: hidden;
   border-bottom: 1px solid rgb(231, 229, 229);
+  overflow: hidden;
 
   img {
     width: 100%;
     object-fit: cover;
+    transition: 0.3s ease;
+  }
+
+  &:hover {
+
+    img {
+      scale: 1.06;
+    }
   }
 }
 
@@ -73,8 +79,26 @@
   font-weight: 700;
 }
 
+.infoLeft{
+  display: flex;
+  align-items: center;
+}
+
 .priceValue {
   font-size: 1.5rem;
+}
+
+.weight{
+  font-size: 0.8rem;
+  height: fit-content;
+  padding: 5px;
+  margin-left: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(213, 210, 210);
+  font-weight: 500;
+  border: 1px solid rgb(213, 210, 210);
 }
 
 .addBtn {
@@ -88,10 +112,10 @@
 
   &:hover {
     scale: 1.05;
-    color: #c9ada7;
+    color: $primary;
   }
 }
 
 .addBtnOrdered {
-  color: #c9ada7;
+  color: $primary;
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import "./App.scss";
 
@@ -10,19 +11,24 @@ import Home from "./pages/Home";
 import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import Order from "./pages/Order";
+import Authorization from "./components/Authorization";
 
 const App = () => {
+  const authorizationDisplay = useSelector(
+    (state) => state.authorization.display
+  );
+
   return (
-    <div className='mainContainer'>
+    <div className="mainContainer">
       <Navbar />
       <Sidebar />
+      {authorizationDisplay ? <Authorization /> : null}
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<Shop />} />
           <Route path="/shop" element={<Shop />} />
-          <Route path="/cart" element={<Cart/>} />
-          <Route path="/order" element={<Order/>} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/order" element={<Order />} />
         </Routes>
       </main>
       <Footer />

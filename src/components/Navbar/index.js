@@ -2,6 +2,8 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { changeSidebarDisplay } from "../../store/sidebarSlice";
 import { toggleCartDisplay } from "../../store/cartSlice";
+import { toggleAuthorizationDisplay } from "../../store/authorizationSlice";
+
 import { Link } from "react-router-dom";
 
 import CartVidget from "../CartVidget";
@@ -16,27 +18,30 @@ const Navbar = () => {
   const isNavAnimated = useSelector((state) => state.nav.animation);
   const sidebarDisplay = useSelector((state) => state.sidebar.display);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
-  const isVidgetShowed = useSelector(state => state.cart.display);
+  const isVidgetShowed = useSelector((state) => state.cart.display);
 
-  const dispath = useDispatch();
+  const dispatch = useDispatch();
 
   return (
     <div
+      id="top"
       className={`${style.navMain} ${
         isNavAnimated ? style.navTransparent : ""
       }`}
     >
       <nav>
         {isVidgetShowed ? <CartVidget /> : null}
-        <div className={style.leftNav}>
-          <img
-            width={30}
-            height={30}
-            src={`${isNavAnimated ? `logo_light.png` : `logo.png`}`}
-            alt="logo"
-          />
-          <p>BAKERY</p>
-        </div>
+        <Link to='/'>
+          <div className={style.leftNav}>
+            <img
+              width={30}
+              height={30}
+              src={`${isNavAnimated ? `logo_light.png` : `logo.png`}`}
+              alt="logo"
+            />
+            <p>BAKERY</p>
+          </div>
+        </Link>
         <div className={style.rightSection}>
           <div className={style.rightNav}>
             <ul>
@@ -44,26 +49,35 @@ const Navbar = () => {
                 <Link to="/">Home</Link>
               </li>
               <li>
-                <Link to="/">About us</Link>
-              </li>
-              <li>
                 <Link to="/shop">Shop</Link>
               </li>
             </ul>
           </div>
           <ul className={style.navIcons}>
-            <li className={style.price}
-            onClick={() => dispath(toggleCartDisplay())}>
-              {totalPrice > 0 ? <div className={`${style.totalPrice} ${isVidgetShowed ? style.totalPriceHidden : ''}`}>{totalPrice}₽</div> : null }
-              
-              <div className={`${totalPrice > 0 ? style.bagFilled : ''}`}><BsBag /></div>
+            <li
+              className={style.price}
+              onClick={() => dispatch(toggleCartDisplay())}
+            >
+              {totalPrice > 0 ? (
+                <div
+                  className={`${style.totalPrice} ${
+                    isVidgetShowed ? style.totalPriceHidden : ""
+                  }`}
+                >
+                  {totalPrice}₽
+                </div>
+              ) : null}
+
+              <div className={`${totalPrice > 0 ? style.bagFilled : ""}`}>
+                <BsBag />
+              </div>
             </li>
-            <li>
+            <li onClick={() => dispatch(toggleAuthorizationDisplay())}>
               <SlUser />
             </li>
             <li
               className={style.mobileIcon}
-              onClick={() => dispath(changeSidebarDisplay())}
+              onClick={() => dispatch(changeSidebarDisplay())}
             >
               {sidebarDisplay ? <HiX /> : <FiMenu />}
             </li>

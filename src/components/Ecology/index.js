@@ -35,12 +35,19 @@ const Ecology = () => {
       <div className={style.contentWrap}>
         <h2>BAKERY AND ECOLOGY</h2>
         <div className={style.content}>
-          <img className={style.area1} src="/img/ecology_1.jpg" alt="ecology" />
+          <img
+            className={` ${style.area1} ${style.contentRow} ${
+              firstRowDisplay ? style.contentRowShowed : ""
+            }`}
+            src="/img/ecology_1.jpg"
+            alt="ecology"
+            id="ecology_1"
+          />
           <div
             className={` ${style.area2} ${style.contentRow} ${
               firstRowDisplay ? style.contentRowShowed : ""
             }`}
-            id="ecology_1"
+            
           >
             <h3>Reducing the use of single-use packaging</h3>
             <ul>
@@ -64,7 +71,9 @@ const Ecology = () => {
               <li>offer guests to buy reusable straws</li>
             </ul>
           </div>
-          <img className={style.area4} src="/img/ecology_2.jpg" alt="ecology" />
+          <img className={`${style.area4} ${style.contentRow} ${
+              secondRowDisplay ? style.contentRowShowed : ""
+            }`} src="/img/ecology_2.jpg" alt="ecology" />
         </div>
       </div>
     </div>

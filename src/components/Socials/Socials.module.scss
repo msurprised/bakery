@@ -1,31 +1,29 @@
 .socials {
+  display: flex;
+  justify-content: flex-end;
+  grid-area: d;
+
+  ul {
     display: flex;
-    justify-content: flex-end;
-    grid-area: d;
-  
-    ul {
-      display: flex;
-      list-style: none;
+    list-style: none;
+  }
+
+  li {
+    &:not(:last-child) {
+      margin-right: 20px;
     }
-  
-    li {
+
+    & > * {
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 10px;
-      height: fit-content;
-      height: 20px;
-      width: 20px;
+      cursor: pointer;
+      margin-top: 3px;
       border: 1px solid rgb(90, 89, 89);
       border-radius: 50%;
-      cursor: pointer;
-  
-      &:not(:last-child) {
-        margin-right: 20px;
-      }
-
-      & > * {
-        margin-top: 3px;
-      }
+      height: 20px;
+      width: 20px;
+      padding: 10px;
     }
   }
+}

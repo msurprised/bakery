@@ -18,7 +18,6 @@ const CartVidget = () => {
 
   const handleClick = (event) => {
     if (!vidgetRef.current.contains(event.target)) {
-      // console.log(event.target)
       dispatch(toggleCartDisplay());
     }
   };
@@ -70,7 +69,7 @@ const CartVidget = () => {
         </div>
         <div className={style.btnSection}>
           <Link  to ='/cart' className={style.cartBtn} onClick={() => dispatch(toggleCartDisplay())}>go to cart</Link>
-          <div className={style.checkBtn}>checkout</div>
+          <Link  to ='/order' className={style.checkBtn} onClick={() => dispatch(toggleCartDisplay())}>checkout</Link>
         </div>
       </div>
     </div>

@@ -1,0 +1,111 @@
+@import "../../config.scss";
+
+.maincontainer {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  background-color: rgba($color: #000000, $alpha: 0.5);
+}
+
+.contentWrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  width: 100%;
+  max-width: 400px;
+  height: fit-content;
+  background-color: #fff;
+
+  h2 {
+    margin-bottom: 40px;
+  }
+}
+
+.inputWrap {
+  position: relative;
+  margin-bottom: 30px;
+  width: 100%;
+  height: fit-content;
+  color: $primary;
+  cursor: pointer;
+
+  label {
+    position: absolute;
+    top: -15px;
+    left: 15px;
+    background-color: #fff;
+    font-size: 0.8rem;
+    padding: 5px;
+    z-index: 1;
+  }
+
+  input {
+    width: 100%;
+    height: 45px;
+    text-indent: 20px;
+    color: #9a8c98;
+    border: 1px solid $primary;
+    font-size: 1.1rem;
+    background-color: #fff;
+    z-index: 1;
+
+    &::placeholder {
+      color: #9a8c98;
+    }
+
+    &:hover,
+    &:focus {
+      border: 1px solid $secondary;
+    }
+  }
+}
+
+.closeBtn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.1s ease;
+    padding: 10px;
+  
+    &:hover {
+      rotate: (90deg);
+    }
+  }
+
+.btn {
+  margin-top: 10px;
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  line-height: 40px;
+  font-weight: 600;
+  background-color: $primary;
+  cursor: pointer;
+  transition: 0.2s ease;
+
+  &:hover {
+    background-color: $secondary;
+  }
+}
+
+.changer {
+  width: 100%;
+  font-weight: 600px;
+  height: 50px;
+  text-align: center;
+  line-height: 70px;
+  cursor: pointer;
+  transition: 0.2s ease;
+
+  &:hover {
+    color: $secondary;
+  }
+}

@@ -1,52 +1,59 @@
 import React from "react";
 import style from "./Footer.module.scss";
+import { animateScroll } from "react-scroll";
+import { Link } from "react-router-dom";
 import Socials from "../Socials";
 
 const Footer = () => {
+
+  const goUp = () => {
+    animateScroll.scrollToTop()
+  }
+
   return (
     <footer>
       <div className={style.footerWrap}>
         <div className={style.firstSection}>
-          <div className={style.logoContainer}>
-            <img width={30} height={30} src="logo_light.png" alt="logo" />
-            <div>BAKERY</div>
-          </div>
+            <div className={style.logoContainer} onClick={goUp}>
+              <img width={30} height={30} src="logo_light.png" alt="logo" />
+              <div>BAKERY</div>
+            </div>
         </div>
         <div className={style.secondSection}>
           <div className={style.navItem}>
-            <a href="/">products</a>
+            <Link to="/">products</Link>
           </div>
           <div className={style.navItem}>
-            <a href="/">delivery</a>
+            <Link to="/">delivery</Link>
           </div>
           <div className={style.navItem}>
-            <a href="/">custom cakes</a>
+            <Link to="/">custom cakes</Link>
           </div>
           <div className={style.navItem}>
-            <a href="/">promotions and news</a>
+            <Link to="/">promotions and news</Link>
           </div>
           <div className={style.navItem}>
-            <a href="/">wholesales</a>
+            <Link to="/">wholesales</Link>
           </div>
         </div>
         <div className={style.thirdSection}>
           <div className={style.navItem}>
-            <a href="/">about us</a>
+            <Link to="/">about us</Link>
           </div>
           <div className={style.navItem}>
-            <a href="/">ecology</a>
+            <Link to="/">ecology</Link>
           </div>
           <div className={style.navItem}>
-            <a href="/">career</a>
+            <Link to="/">career</Link>
           </div>
           <div className={style.navItem}>
-            <a href="/">addresses and contacts</a>
+            <Link to="/">addresses and contacts</Link>
           </div>
           <div className={style.navItem}>
-            <a href="/">product composition</a>
+            <Link to="/">product composition</Link>
           </div>
           <div className={style.navItem}>
-            <a href="/">subscription rules</a>
+            <Link to="/">subscription rules</Link>
           </div>
         </div>
 
