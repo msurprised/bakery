@@ -10,7 +10,7 @@ import { BsInfoCircle } from "react-icons/bs";
 const Card = (props) => {
   const [isOrdered, setIsOrdered] = useState(false);
 
-  const cartItems = useSelector((state) => state.cart.cartItems);
+  const cartItems = useSelector((state) => state.cart.order.cartItems);
   const dispatch = useDispatch();
 
   const addItemToCartStorage = () => {

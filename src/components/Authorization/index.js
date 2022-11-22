@@ -1,24 +1,19 @@
-import React, { useState, createRef, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState, useRef, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchNewUser, fetchUser } from "../../store/authorizationSlice";
+// import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
 import { toggleAuthorizationDisplay } from "../../store/authorizationSlice";
+
 import style from "./Authorization.module.scss";
 
 const Authorization = () => {
   const [registered, setRegistered] = useState(true);
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
-
-  const ref = createRef();
-
+  const ref = useRef(null);
   const dispatch = useDispatch();
-
-  const handleChangeUser = (event) => {
-    setUser((prev) => event.target.value);
-  };
-
-  const handleChangePassword = (event) => {
-    setPassword((prev) => event.target.value);
-  };
+  const status = useSelector((state) => state.authorization.status);
 
   const handleOutClick = (event) => {
     if (!ref.current.contains(event.target)) {
@@ -26,10 +21,16 @@ const Authorization = () => {
     }
   };
 
+  const handleEnterBtnClick = () => {
+    registered
+      ? dispatch(fetchUser({ user, password }))
+      : dispatch(fetchNewUser({ user, password }));
+  };
+
   useEffect(() => {
     setTimeout(() => {
       document.addEventListener("click", handleOutClick);
-    }, 1000);
+    }, 500);
 
     return () => {
       document.removeEventListener("click", handleOutClick);
@@ -53,7 +54,10 @@ const Authorization = () => {
               id="user"
               name="user"
               value={user}
-              onChange={handleChangeUser}
+              onChange={(event) => {
+                setUser((prev) => event.target.value);
+              }}
+              placeholder="email"
             />
             <label htmlFor="user">email</label>
           </div>
@@ -63,12 +67,17 @@ const Authorization = () => {
               id="password"
               name="password"
               value={password}
-              onChange={handleChangePassword}
+              onChange={(event) => {
+                setPassword((prev) => event.target.value);
+              }}
+              placeholder="password"
             />
             <label htmlFor="password">password</label>
           </div>
         </div>
-        <div className={style.btn}>{registered ? "sign in" : "sign up"}</div>
+        <div className={style.btn} onClick={handleEnterBtnClick}>
+          {registered ? "sign in" : "sign up"}
+        </div>
         <div
           className={style.changer}
           onClick={() => setRegistered(!registered)}

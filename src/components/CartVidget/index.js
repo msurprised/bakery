@@ -10,9 +10,9 @@ import style from "./Cart.module.scss";
 const CartVidget = () => {
   const [totalAmount, setTotalAmount] = useState(0);
 
-  const cartItems = useSelector((state) => state.cart.cartItems);
+  const cartItems = useSelector((state) => state.cart.order.cartItems);
   const cartDisplay = useSelector((state) => state.cart.display);
-  const totalPrice = useSelector((state) => state.cart.totalPrice);
+  const totalPrice = useSelector((state) => state.cart.order.totalPrice);
   const dispatch = useDispatch();
   const vidgetRef = useRef(null);
 

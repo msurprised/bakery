@@ -8,8 +8,8 @@ import {Link} from 'react-router-dom'
 import style from "./Order.module.scss";
 
 const Order = () => {
-  const cartItems = useSelector((state) => state.cart.cartItems);
-  const cutlery = useSelector((state) => state.cart.cutlery);
+  const cartItems = useSelector((state) => state.cart.order.cartItems);
+  const cutlery = useSelector((state) => state.cart.order.cutlery);
   const dispatch = useDispatch();
 
   return (

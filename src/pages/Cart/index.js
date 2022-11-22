@@ -6,8 +6,8 @@ import CartItem from "../../components/CartItem";
 import style from "./Cart.module.scss";
 
 const Cart = () => {
-  const cartItems = useSelector((state) => state.cart.cartItems);
-  const totalPrice = useSelector((state) => state.cart.totalPrice);
+  const cartItems = useSelector((state) => state.cart.order.cartItems);
+  const totalPrice = useSelector((state) => state.cart.order.totalPrice);
   console.log(cartItems);
 
   return (

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-
+import React, { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setOrderInfo } from "../../store/cartSlice";
 import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
 import dayjs from "dayjs";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -12,12 +12,12 @@ import style from "./Form.module.scss";
 import adresses from "../../data/addresses.json";
 
 const OrderForm = () => {
-  const [order, setOrder] = useState({
+  const [deliveryInfo, setDeliveryinfo] = useState({
     adress: "",
     name: "",
     tel: "",
     email: "",
-    day: dayjs(),
+    day: "",
     time: "",
     soon: "",
     needCall: false,
@@ -29,9 +29,8 @@ const OrderForm = () => {
   const [datePickerDisplay, setDatePickerDisplay] = useState(true);
   const [timeInputSelected, setTimeInputSelected] = useState(false);
   const [dayInputSelected, setDayInputSelected] = useState(false);
-
-  const totalPrice = useSelector((state) => state.cart.totalPrice);
-
+  const totalPrice = useSelector((state) => state.cart.order.totalPrice);
+  const dispatch = useDispatch();
   const toggleAdressSelector = () => {
     setAdressInputSelected(!adressInputSelected);
   };
@@ -45,69 +44,67 @@ const OrderForm = () => {
   };
 
   const selectAdressInputValue = (event) => {
-    setOrder((prev) => ({ ...prev, adress: event.target.textContent }));
+    setDeliveryinfo((prev) => ({ ...prev, adress: event.target.textContent }));
     setAdressInputSelected(false);
   };
 
   const seletTimeInputValue = (event) => {
-    setOrder((prev) => ({ ...prev, time: event.target.textContent }));
+    setDeliveryinfo((prev) => ({ ...prev, time: event.target.textContent }));
     setTimeInputSelected(false);
   };
 
   const resetAdress = () => {
-    setOrder((prev) => ({ ...prev, adress: "" }));
+    setDeliveryinfo((prev) => ({ ...prev, adress: "" }));
   };
 
   const handleName = (event) => {
-    setOrder((prev) => ({ ...prev, name: event.target.value }));
+    setDeliveryinfo((prev) => ({ ...prev, name: event.target.value }));
   };
 
   const handleTel = (event) => {
-    setOrder((prev) => ({ ...prev, tel: event.target.value }));
+    setDeliveryinfo((prev) => ({ ...prev, tel: event.target.value }));
   };
 
   const handleEmail = (event) => {
-    setOrder((prev) => ({ ...prev, email: event.target.value }));
+    setDeliveryinfo((prev) => ({ ...prev, email: event.target.value }));
   };
 
   const handleSoon = (event) => {
-    setOrder((prev) => ({ ...prev, soon: event.target.value }));
+    setDeliveryinfo((prev) => ({ ...prev, soon: event.target.value }));
   };
 
   const handleDay = (event) => {
-    setOrder((prev) => ({ ...prev, day: event.target.value }));
+    setDeliveryinfo((prev) => ({ ...prev, day: event.target.value }));
   };
   const handleTime = (event) => {
-    setOrder((prev) => ({ ...prev, time: event.target.value }));
+    setDeliveryinfo((prev) => ({ ...prev, time: event.target.value }));
   };
 
   const handleComment = (event) => {
-    setOrder((prev) => ({ ...prev, comment: event.target.value }));
+    setDeliveryinfo((prev) => ({ ...prev, comment: event.target.value }));
   };
 
   const handleNeedCall = (event) => {
-    setOrder((prev) => ({ ...prev, needCall: event.target.checked }));
+    setDeliveryinfo((prev) => ({ ...prev, needCall: event.target.checked }));
   };
 
   const handleLessPack = (event) => {
-    setOrder((prev) => ({ ...prev, lessPack: event.target.checked }));
+    setDeliveryinfo((prev) => ({ ...prev, lessPack: event.target.checked }));
   };
 
   const handleAdress = (event) => {
-    setOrder((prev) => ({ ...prev, adress: event.target.value }));
+    setDeliveryinfo((prev) => ({ ...prev, adress: event.target.value }));
   };
 
-  const sendForm = (event) => {};
+  const sendForm = () => {
+    dispatch(setOrderInfo(deliveryInfo));
+  };
 
   const theme = createTheme({
     palette: {
       primary: { main: "#c9ada7" },
     },
   });
-
-  useEffect(() => {
-    console.log(order);
-  }, [order]);
 
   return (
     <div className={style.mainContainer}>
@@ -124,7 +121,7 @@ const OrderForm = () => {
           modules={["control.ZoomControl"]}
           options={{ autoFitToViewport: "" }}
         >
-          {!order.adress
+          {!deliveryInfo.adress
             ? adresses.adresses.map((adress) => (
                 <Placemark
                   key={adress.id}
@@ -137,7 +134,7 @@ const OrderForm = () => {
                 />
               ))
             : adresses.adresses
-                .filter((item) => item.name === order.adress)
+                .filter((item) => item.name === deliveryInfo.adress)
                 .map((adress) => (
                   <Placemark
                     key={adress.id}
@@ -153,9 +150,7 @@ const OrderForm = () => {
       </YMaps>
 
       <form>
-        <div
-          className={`${style.inputWrap} ${style.CP}`}
-        >
+        <div className={`${style.inputWrap} ${style.CP}`}>
           <label htmlFor="adress">adress</label>
           <div
             className={`${style.inputArrow} ${
@@ -167,7 +162,7 @@ const OrderForm = () => {
           <input
             required
             name="adress"
-            value={order.adress}
+            value={deliveryInfo.adress}
             id="adress"
             placeholder="select bakery"
             onFocus={toggleAdressSelector}
@@ -229,11 +224,12 @@ const OrderForm = () => {
                 name="day"
                 type="text"
                 id="day"
-                value={order.day.format("DD.MM.YYYY")}
+                value={deliveryInfo.day}
                 onChange={handleDay}
                 onFocus={toggleDaySelector}
                 onBlur={toggleDaySelector}
                 required={datePickerDisplay}
+                placeholder='select day'
               />
               <label htmlFor="day">date</label>
             </div>
@@ -248,9 +244,9 @@ const OrderForm = () => {
                   <StaticDatePicker
                     displayStaticWrapperAs="desktop"
                     openTo="day"
-                    value={order.day}
+                    value={dayjs()}
                     onChange={(newValue) => {
-                      setOrder((prev) => ({ ...prev, day: newValue }));
+                      setDeliveryinfo((prev) => ({ ...prev, day: newValue.toString().slice(0,16) }));
                       toggleDaySelector();
                     }}
                   />
@@ -263,13 +259,11 @@ const OrderForm = () => {
               datePickerDisplay ? style.datePicker : style.datePickerHidden
             }`}
           >
-            <div
-              className={`${style.inputWrap} ${style.CP}`}
-            >
+            <div className={`${style.inputWrap} ${style.CP}`}>
               <input
                 name="time"
                 type="text"
-                value={order.time}
+                value={deliveryInfo.time}
                 onChange={handleTime}
                 onFocus={toggleTimeSelector}
                 onBlur={toggleTimeSelector}
@@ -317,7 +311,7 @@ const OrderForm = () => {
           <div className={style.inputWrap}>
             <input
               name="name"
-              value={order.name}
+              value={deliveryInfo.name}
               onChange={handleName}
               type="text"
               required
@@ -329,7 +323,7 @@ const OrderForm = () => {
           <div className={style.inputWrap}>
             <input
               name="tel"
-              value={order.tel}
+              value={deliveryInfo.tel}
               onChange={handleTel}
               type="tel"
               required
@@ -341,7 +335,7 @@ const OrderForm = () => {
           <div className={style.inputWrap}>
             <input
               name="email"
-              value={order.email}
+              value={deliveryInfo.email}
               onChange={handleEmail}
               type="email"
               required
@@ -356,7 +350,7 @@ const OrderForm = () => {
           <div className={style.inputWrap}>
             <textarea
               id="comment"
-              value={order.comment}
+              value={deliveryInfo.comment}
               onChange={handleComment}
               name="comment"
               placeholder="order comment"
@@ -369,7 +363,7 @@ const OrderForm = () => {
                 name="need_call"
                 type="checkbox"
                 id="call"
-                checked={order.needCall}
+                checked={deliveryInfo.needCall}
                 onChange={handleNeedCall}
               />
               <label htmlFor="call">call to confirm order</label>
@@ -379,7 +373,7 @@ const OrderForm = () => {
                 name="less_pack"
                 type="checkbox"
                 id="lessPack"
-                checked={order.lessPack}
+                checked={deliveryInfo.lessPack}
                 onChange={handleLessPack}
               />
               <label htmlFor="lessPack">less packaging</label>

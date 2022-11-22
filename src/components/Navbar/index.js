@@ -17,8 +17,9 @@ import { SlUser } from "react-icons/sl";
 const Navbar = () => {
   const isNavAnimated = useSelector((state) => state.nav.animation);
   const sidebarDisplay = useSelector((state) => state.sidebar.display);
-  const totalPrice = useSelector((state) => state.cart.totalPrice);
+  const totalPrice = useSelector((state) => state.cart.order.totalPrice);
   const isVidgetShowed = useSelector((state) => state.cart.display);
+  const isUserEntered = useSelector((state) => state.authorization.entered);
 
   const dispatch = useDispatch();
 
@@ -31,7 +32,7 @@ const Navbar = () => {
     >
       <nav>
         {isVidgetShowed ? <CartVidget /> : null}
-        <Link to='/'>
+        <Link to="/">
           <div className={style.leftNav}>
             <img
               width={30}
@@ -72,7 +73,13 @@ const Navbar = () => {
                 <BsBag />
               </div>
             </li>
-            <li onClick={() => dispatch(toggleAuthorizationDisplay())}>
+            <li
+              onClick={
+                isUserEntered
+                  ?  null
+                  : () => dispatch(toggleAuthorizationDisplay())
+              }
+            >
               <SlUser />
             </li>
             <li

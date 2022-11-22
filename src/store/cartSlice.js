@@ -3,37 +3,41 @@ import { createSlice } from "@reduxjs/toolkit";
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
-    cartItems: [],
-    totalPrice: 0,
     display: false,
-    cutlery: 1,
+
+    order: {
+      cartItems: [],
+      totalPrice: 0,
+      cutlery: 1,
+      deliveryInfo: {},
+    },
   },
   reducers: {
     additemToCart(state, action) {
-      const foundItem = state.cartItems.find(
+      const foundItem = state.order.cartItems.find(
         (item) => item.id === action.payload.id
       );
 
       if (foundItem) {
         foundItem.amount += 1;
       } else {
-        state.cartItems.push({ ...action.payload, amount: 1 });
+        state.order.cartItems.push({ ...action.payload, amount: 1 });
       }
-      state.totalPrice += action.payload.price;
+      state.order.totalPrice += action.payload.price;
     },
     toggleCartDisplay(store) {
       store.display = !store.display;
     },
     deleteItemFromVidget(state, action) {
-      state.cartItems = state.cartItems.filter(
+      state.order.cartItems = state.order.cartItems.filter(
         (obj) => obj.id !== action.payload.id
       );
 
       const price = action.payload.price * action.payload.amount;
-      state.totalPrice -= price;
+      state.order.totalPrice -= price;
     },
     deleteItemFromCart(state, action) {
-      const foundItem = state.cartItems.find(
+      const foundItem = state.order.cartItems.find(
         (item) => item.id === action.payload.id
       );
 
@@ -41,17 +45,20 @@ const cartSlice = createSlice({
         return;
       } else {
         foundItem.amount -= 1;
-        state.totalPrice -= foundItem.price;
+        state.order.totalPrice -= foundItem.price;
       }
     },
     addCutlery(state) {
-      state.cutlery += 1;
+      state.order.cutlery += 1;
     },
     reduceCutlery(state) {
-      if (state.cutlery === 1) return;
+      if (state.order.cutlery === 1) return;
 
-      state.cutlery -= 1;
+      state.order.cutlery -= 1;
     },
+    setOrderInfo(state, action) {
+      state.order.deliveryInfo = action.payload;
+    }
   },
 });
 
@@ -63,5 +70,6 @@ export const {
   deleteItemFromVidget,
   deleteItemFromCart,
   addCutlery,
-  reduceCutlery
+  reduceCutlery,
+  setOrderInfo
 } = cartSlice.actions;

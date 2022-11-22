@@ -17,12 +17,15 @@ const App = () => {
   const authorizationDisplay = useSelector(
     (state) => state.authorization.display
   );
+  const userEnterrd = useSelector(
+    (state) => state.authorization.entered
+  );
 
   return (
     <div className="mainContainer">
       <Navbar />
       <Sidebar />
-      {authorizationDisplay ? <Authorization /> : null}
+      {authorizationDisplay && !userEnterrd ? <Authorization /> : null}
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
