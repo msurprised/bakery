@@ -9,7 +9,6 @@ const cartSlice = createSlice({
       cartItems: [],
       totalPrice: 0,
       cutlery: 1,
-      deliveryInfo: {},
     },
   },
   reducers: {
@@ -56,9 +55,13 @@ const cartSlice = createSlice({
 
       state.order.cutlery -= 1;
     },
-    setOrderInfo(state, action) {
-      state.order.deliveryInfo = action.payload;
-    }
+    clearCart(state) {
+      state.order = {
+        cartItems: [],
+        totalPrice: 0,
+        cutlery: 1,
+      };
+    },
   },
 });
 
@@ -71,5 +74,5 @@ export const {
   deleteItemFromCart,
   addCutlery,
   reduceCutlery,
-  setOrderInfo
+  clearCart
 } = cartSlice.actions;

@@ -1,0 +1,44 @@
+.mainContainer {
+  width: 260px;
+  height: 250px;
+  background-color: #fff;
+  border: 1px solid rgb(231, 229, 229);
+  padding: 10px;
+}
+
+.orderSection {
+  text-align: center;
+  padding-bottom: 5px;
+  font-size: 0.62rem;
+  aside {
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding-bottom: 5px;
+  }
+}
+
+.listWrap {
+  height: 140px;
+  padding: 5px;
+  margin-top: 10px;
+  overflow-y: auto;
+
+  li {
+    list-style: none;
+    padding-bottom: 5px;
+
+    span {
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding-right: 5px;
+    }
+  }
+}
+
+.infoWrap {
+  margin-top: 5px;
+  padding: 5px;
+  border-bottom: 1px solid rgb(231, 229, 229);
+  display: flex;
+  justify-content: space-between;
+}

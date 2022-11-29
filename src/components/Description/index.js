@@ -1,4 +1,4 @@
-import React, { useEffect, useState, createRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import style from "./Description.module.scss";
 import { toggleDescriptionDisplay } from "../../store/descriptionSlice";
 import { additemToCart } from "../../store/cartSlice";
@@ -9,9 +9,9 @@ import { useSelector, useDispatch } from "react-redux";
 const Description = () => {
   const [addedToCart, setAddedToCart] = useState(false);
   const item = useSelector((state) => state.description.item);
-  const cartitems = useSelector((state) => state.cart.cartItems);
+  const cartitems = useSelector((state) => state.cart.order.cartItems);
   const dispatch = useDispatch();
-  const ref = createRef();
+  const ref = useRef();
 
   const handleOutClick = (event) => {
     if (!ref.current.contains(event.target)) {

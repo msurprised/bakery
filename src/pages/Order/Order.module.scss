@@ -1,8 +1,9 @@
+@import '../../config.scss';
 .mainContainer {
   width: 100%;
   margin-top: 100px;
   margin-bottom: 20px;
-  min-height: 500px;
+  min-height: calc(100vh - 120px);
 }
 
 .emptyBox {
@@ -55,7 +56,7 @@
   }
 
   a {
-    color: #c9ada7;
+    color: $primary;
   }
 }
 
@@ -89,7 +90,7 @@
 .catalogRef {
   height: 40px;
   width: 250px;
-  background-color: #c9ada7;
+  background-color: $primary;
   margin-top: 40px;
   line-height: 40px;
   color: #000;
@@ -97,7 +98,7 @@
   transition: 0.2s ease;
 
   &:hover {
-    background-color: #e0c1ba;
+    background-color: $secondary;
   }
 }
 

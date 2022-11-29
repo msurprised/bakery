@@ -58,10 +58,10 @@
 .mobileIcon {
   font-size: 30px;
   margin-top: -5px;
-  display: none;
+  display: none !important;
 
   @media screen and (max-width: 1024px) {
-    display: block;
+    display: block !important;
   }
 }
 
@@ -122,6 +122,20 @@
 .navIcons {
   li {
     margin-left: 20px;
+    // align-items: center;
+    display: flex;
+  }
+}
+
+.userName {
+  display: inline-block;
+  margin-right: 10px;
+  opacity: 0.6;
+  font-weight: 500;
+  font-size: 1.1rem;
+
+  @media screen and (max-width: 768px) {
+    display: none;
   }
 }
 
@@ -139,6 +153,10 @@
   translate: 0;
   transition: opacity 0.2s ease, translate 0.2s ease;
   display: flex;
+
+  @media screen and (max-width: 768px) {
+    display: none;
+  }
 }
 
 .totalPriceHidden {

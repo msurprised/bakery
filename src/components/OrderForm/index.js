@@ -1,12 +1,15 @@
 import React, { useState } from "react";
+import { clearCart } from "../../store/cartSlice";
 import { useSelector, useDispatch } from "react-redux";
-import { setOrderInfo } from "../../store/cartSlice";
 import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
 import dayjs from "dayjs";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { StaticDatePicker } from "@mui/x-date-pickers/StaticDatePicker";
+import { TextField } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { doc, setDoc } from "firebase/firestore";
+import { db } from "../../firebase";
 
 import style from "./Form.module.scss";
 import adresses from "../../data/addresses.json";
@@ -14,15 +17,15 @@ import adresses from "../../data/addresses.json";
 const OrderForm = () => {
   const [deliveryInfo, setDeliveryinfo] = useState({
     adress: "",
-    name: "",
-    tel: "",
-    email: "",
+    soon: "exact",
     day: "",
     time: "",
-    soon: "",
+    name: "",
+    email: "",
+    tel: "",
+    comment: "",
     needCall: false,
     lessPack: false,
-    comment: "",
   });
 
   const [adressInputSelected, setAdressInputSelected] = useState(false);
@@ -30,7 +33,11 @@ const OrderForm = () => {
   const [timeInputSelected, setTimeInputSelected] = useState(false);
   const [dayInputSelected, setDayInputSelected] = useState(false);
   const totalPrice = useSelector((state) => state.cart.order.totalPrice);
+  const cutlery = useSelector((state) => state.cart.order.cutlery);
+  const userId = useSelector((state) => state.authorization.user.id);
+  const items = useSelector((state) => state.cart.order.cartItems);
   const dispatch = useDispatch();
+
   const toggleAdressSelector = () => {
     setAdressInputSelected(!adressInputSelected);
   };
@@ -75,9 +82,11 @@ const OrderForm = () => {
 
   const handleDay = (event) => {
     setDeliveryinfo((prev) => ({ ...prev, day: event.target.value }));
+    toggleDaySelector();
   };
   const handleTime = (event) => {
     setDeliveryinfo((prev) => ({ ...prev, time: event.target.value }));
+    toggleTimeSelector();
   };
 
   const handleComment = (event) => {
@@ -94,10 +103,37 @@ const OrderForm = () => {
 
   const handleAdress = (event) => {
     setDeliveryinfo((prev) => ({ ...prev, adress: event.target.value }));
+    setAdressInputSelected(false);
   };
 
-  const sendForm = () => {
-    dispatch(setOrderInfo(deliveryInfo));
+  const sendForm = async (e) => {
+    e.preventDefault();
+
+    let user = userId;
+    const orderNum = user + dayjs().format("YYMMDDHHmmssSSS");
+    const delivery = {};
+
+    if (userId === null) {
+      user = "noName";
+    }
+
+    delivery.num = orderNum;
+    delivery.info = deliveryInfo;
+    delivery.order = [];
+    delivery.cutlery = cutlery;
+    delivery.totalPrice = totalPrice;
+    delivery.day = dayjs().format("DD.MM.YY").toString();
+
+    items.forEach((item) => {
+      const orderItem = {};
+      orderItem[item.name] = item.amount;
+      delivery.order.push(orderItem);
+    });
+
+    await setDoc(doc(db, user, orderNum), {
+      delivery,
+    });
+    dispatch(clearCart());
   };
 
   const theme = createTheme({
@@ -149,7 +185,7 @@ const OrderForm = () => {
         </Map>
       </YMaps>
 
-      <form>
+      <form onSubmit={sendForm}>
         <div className={`${style.inputWrap} ${style.CP}`}>
           <label htmlFor="adress">adress</label>
           <div
@@ -166,7 +202,6 @@ const OrderForm = () => {
             id="adress"
             placeholder="select bakery"
             onFocus={toggleAdressSelector}
-            onBlur={toggleAdressSelector}
             onChange={handleAdress}
           />
         </div>
@@ -208,7 +243,7 @@ const OrderForm = () => {
               name="soon"
               value="exact"
               defaultChecked
-              onClick={() => setDatePickerDisplay(true)}
+              onFocus={() => setDatePickerDisplay(true)}
               onChange={handleSoon}
             />
             <label htmlFor="exact">exact time</label>
@@ -227,9 +262,8 @@ const OrderForm = () => {
                 value={deliveryInfo.day}
                 onChange={handleDay}
                 onFocus={toggleDaySelector}
-                onBlur={toggleDaySelector}
                 required={datePickerDisplay}
-                placeholder='select day'
+                placeholder="select day"
               />
               <label htmlFor="day">date</label>
             </div>
@@ -246,9 +280,15 @@ const OrderForm = () => {
                     openTo="day"
                     value={dayjs()}
                     onChange={(newValue) => {
-                      setDeliveryinfo((prev) => ({ ...prev, day: newValue.toString().slice(0,16) }));
+                      setDeliveryinfo((prev) => ({
+                        ...prev,
+                        day: newValue.toString().slice(0, 16),
+                      }));
                       toggleDaySelector();
                     }}
+                    renderInput={(props) => (
+                      <TextField label="Date" helperText="Something" />
+                    )}
                   />
                 </LocalizationProvider>
               </ThemeProvider>
@@ -389,9 +429,7 @@ const OrderForm = () => {
             <aside>total</aside>
             <div className={style.priceWrap}>{totalPrice}₽</div>
           </div>
-          <div className={style.sendBtn} onClick={sendForm}>
-            checkout
-          </div>
+          <input  type='submit' className={style.sendBtn} value='checkout'/>
           <p>
             By clicking the "checkout" button, I give my consent to the
             processing of my personal data, in accordance with the federal law

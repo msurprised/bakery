@@ -12,26 +12,29 @@ import Shop from "./pages/Shop";
 import Cart from "./pages/Cart";
 import Order from "./pages/Order";
 import Authorization from "./components/Authorization";
+import History from "./pages/History";
 
 const App = () => {
   const authorizationDisplay = useSelector(
-    (state) => state.authorization.display
+    (state) => state.authorization.formDisplay
   );
-  const userEnterrd = useSelector(
+  const userEntered = useSelector(
     (state) => state.authorization.entered
   );
 
+  
   return (
     <div className="mainContainer">
       <Navbar />
       <Sidebar />
-      {authorizationDisplay && !userEnterrd ? <Authorization /> : null}
+      {authorizationDisplay && !userEntered ? <Authorization /> : null}
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/order" element={<Order />} />
+          <Route path="/history" element={<History />} />
         </Routes>
       </main>
       <Footer />

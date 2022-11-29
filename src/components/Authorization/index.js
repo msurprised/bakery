@@ -13,7 +13,7 @@ const Authorization = () => {
   const [password, setPassword] = useState("");
   const ref = useRef(null);
   const dispatch = useDispatch();
-  const status = useSelector((state) => state.authorization.status);
+  const loading = useSelector((state) => state.authorization.loading);
 
   const handleOutClick = (event) => {
     if (!ref.current.contains(event.target)) {
@@ -39,6 +39,8 @@ const Authorization = () => {
 
   return (
     <div className={style.maincontainer}>
+      {loading ? <div className={style.loading}></div> : null}
+
       <div className={style.contentWrap} ref={ref}>
         <div
           className={style.closeBtn}

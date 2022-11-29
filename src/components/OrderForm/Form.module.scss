@@ -42,11 +42,11 @@
 
   label {
     position: absolute;
-    top: -15px;
+    top: -10px;
     left: 15px;
     background-color: #fff;
     font-size: 0.8rem;
-    padding: 5px;
+    padding: 1px;
     z-index: 1;
   }
 
@@ -67,6 +67,7 @@
     &:hover, &:focus {
       border: 1px solid $secondary;
     }
+
   }
 
   textarea {
@@ -269,6 +270,8 @@
     
     span {
       color: $primary;
+      padding-left: 0.3rem;
+      cursor: pointer;
     }
   }
 }

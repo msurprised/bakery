@@ -8,7 +8,6 @@ import style from "./Cart.module.scss";
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.order.cartItems);
   const totalPrice = useSelector((state) => state.cart.order.totalPrice);
-  console.log(cartItems);
 
   return (
     <div className={style.mainContainer}>

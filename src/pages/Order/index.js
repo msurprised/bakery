@@ -61,7 +61,7 @@ const Order = () => {
             cookies, bread, cakes, puffs and much more are waiting for you in
             the catalog
           </p>
-          <Link to='/shop'><div className={style.catalogRef}>Explore</div></Link>
+          <Link to='/shop'><div className={style.catalogRef}>explore</div></Link>
         </div>
       )}
     </div>

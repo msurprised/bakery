@@ -1,0 +1,64 @@
+@import "../../config.scss";
+
+.mainContainer {
+  position: absolute;
+  top: 85px;
+  right: -30px;
+  width: 280px;
+  height: 90px;
+  padding: 15px;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  font-weight: 500;
+  z-index: 2000;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  color: #000 !important;
+
+  @media screen and (max-width: 768px) {
+    grid-template-rows: repeat(3, 1fr);
+    height: 135px;
+    right: 0;
+  }
+}
+
+.userName{
+  display: none;
+  text-align: center;
+  line-height: 30px;
+
+  @media screen and (max-width: 768px) {
+    display: block;
+  }}
+
+.orderLink {
+  padding-top: 5px;
+  font-weight: 400;
+  text-align: center;
+  font-size: 1.3rem;
+
+  a {
+    color: #000;
+    border-bottom: 1px dashed #000;
+    transition: 0.2s ease;
+    &:hover {
+      color: $primary;
+      border-bottom: 1px dashed $primary;
+    }
+  }
+}
+
+.logoutBtn {
+  width: 280px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  background-color: $primary;
+  margin: auto;
+  cursor: pointer;
+  transition: 0.2s ease;
+
+  &:hover {
+    background-color: $secondary;
+  }
+}

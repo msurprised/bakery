@@ -3,7 +3,7 @@
 .mainContainer {
   width: 100%;
   padding-top: 100px;
-  min-height: 700px;
+  min-height: calc(100vh - 100px);
 }
 
 .contentWrap {

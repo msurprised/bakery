@@ -1,3 +1,5 @@
+@import '../../config.scss';
+
 .achievContainer {
   width: 100%;
   margin-top: 90px;
@@ -6,8 +8,6 @@
     margin-top: 40px;
   }
 }
-
-
 
 .achievContent {
   font-size: 16px;
@@ -56,7 +56,7 @@
 
 .num {
   font-size: 2.5rem;
-  color: #C9ADA7;
+  color: $secondary;
   font-weight: bold;
   margin-right: 10px;
 

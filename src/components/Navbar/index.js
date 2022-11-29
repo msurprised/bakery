@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { changeSidebarDisplay } from "../../store/sidebarSlice";
 import { toggleCartDisplay } from "../../store/cartSlice";
-import { toggleAuthorizationDisplay } from "../../store/authorizationSlice";
+import { toggleAuthorizationDisplay,toggleHistoryVidgetDisplay } from "../../store/authorizationSlice";
 
 import { Link } from "react-router-dom";
 
@@ -13,16 +13,18 @@ import { FiMenu } from "react-icons/fi";
 import { HiX } from "react-icons/hi";
 import { BsBag } from "react-icons/bs";
 import { SlUser } from "react-icons/sl";
+import UserVidget from "../UserVidget";
 
 const Navbar = () => {
-  const isNavAnimated = useSelector((state) => state.nav.animation);
   const sidebarDisplay = useSelector((state) => state.sidebar.display);
+  const cartVidgetDisplay = useSelector((state) => state.cart.display);
+  const userVidgetDisplay = useSelector((state) => state.authorization.vidgetDisplay);
+  const isNavAnimated = useSelector((state) => state.nav.animation);
   const totalPrice = useSelector((state) => state.cart.order.totalPrice);
-  const isVidgetShowed = useSelector((state) => state.cart.display);
   const isUserEntered = useSelector((state) => state.authorization.entered);
+  const userName = useSelector((state) => state.authorization.user.email);
 
   const dispatch = useDispatch();
-
   return (
     <div
       id="top"
@@ -31,7 +33,8 @@ const Navbar = () => {
       }`}
     >
       <nav>
-        {isVidgetShowed ? <CartVidget /> : null}
+        {cartVidgetDisplay ? <CartVidget /> : null}
+        {userVidgetDisplay ? <UserVidget /> : null}
         <Link to="/">
           <div className={style.leftNav}>
             <img
@@ -62,7 +65,7 @@ const Navbar = () => {
               {totalPrice > 0 ? (
                 <div
                   className={`${style.totalPrice} ${
-                    isVidgetShowed ? style.totalPriceHidden : ""
+                    cartVidgetDisplay ? style.totalPriceHidden : ""
                   }`}
                 >
                   {totalPrice}₽
@@ -76,10 +79,11 @@ const Navbar = () => {
             <li
               onClick={
                 isUserEntered
-                  ?  null
+                  ? () => dispatch(toggleHistoryVidgetDisplay())
                   : () => dispatch(toggleAuthorizationDisplay())
               }
             >
+              <div className={style.userName}>{userName}</div>
               <SlUser />
             </li>
             <li

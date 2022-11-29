@@ -16,7 +16,7 @@ const CartVidget = () => {
   const dispatch = useDispatch();
   const vidgetRef = useRef(null);
 
-  const handleClick = (event) => {
+  const handleOutClick = (event) => {
     if (!vidgetRef.current.contains(event.target)) {
       dispatch(toggleCartDisplay());
     }
@@ -24,13 +24,13 @@ const CartVidget = () => {
 
   useEffect(() => {
     if (cartDisplay) {
-      document.addEventListener("click", handleClick, { capture: true });
+      document.addEventListener("click", handleOutClick, { capture: true });
     }
 
     return () => {
-      document.removeEventListener("click", handleClick, { capture: true });
+      document.removeEventListener("click", handleOutClick, { capture: true });
     };
-  }, [cartDisplay]);
+  }, []);
 
   
   useEffect(() => {
@@ -44,9 +44,7 @@ const CartVidget = () => {
 
   return (
     <div
-      className={`${style.mainContainer} ${
-        cartDisplay ? "" : style.mainContainerhidden
-      }`}
+      className={style.mainContainer}
       ref={vidgetRef}
     >
       <div className={style.titleWrap}>
