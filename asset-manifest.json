@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/bakery/static/css/main.d8d341ca.css",
+    "main.js": "/bakery/static/js/main.c3da4311.js",
+    "static/media/wholesale_bg.jpg": "/bakery/static/media/wholesale_bg.f2d93385a9c52351d32e.jpg",
+    "index.html": "/bakery/index.html",
+    "main.d8d341ca.css.map": "/bakery/static/css/main.d8d341ca.css.map",
+    "main.c3da4311.js.map": "/bakery/static/js/main.c3da4311.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d8d341ca.css",
+    "static/js/main.c3da4311.js"
+  ]
+}
