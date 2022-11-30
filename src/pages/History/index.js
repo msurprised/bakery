@@ -21,11 +21,18 @@ const History = () => {
     <div className={style.mainContainer}>
       <div className={style.contentWrap}>
         <h1>order history: </h1>
-        <div className={`${userId ? style.ordersWrap: style.noWrap}`}>
-          {userId ? 
-          orderList.map((order, index) => (
-            <OrderCard key={index} order={order} / > 
-          )) : <div>log in to view order history</div>}
+        <div className={`${userId ? style.ordersWrap : style.noWrap}`}>
+          {userId && orderList.length === 0 ? (
+            <div>you haven't ordered anything yet</div>
+          ) : null}
+
+          {userId ? (
+            orderList.map((order, index) => (
+              <OrderCard key={index} order={order} />
+            ))
+          ) : (
+            <div>log in to view order history</div>
+          )}
         </div>
       </div>
     </div>

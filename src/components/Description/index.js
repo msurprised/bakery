@@ -48,7 +48,7 @@ const Description = () => {
           ╳
         </div>
         <div className={style.imgSection}>
-          <div className={style.weight}>125g</div>
+          <div className={style.weight}>{item.weight}g</div>
           <img src={item.url} alt="product" />
         </div>
         <div className={style.infoSection}>

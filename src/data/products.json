@@ -132,7 +132,7 @@
       "category": "bread",
       "name": "Wheat bread",
       "price": 110,
-      "weight": 60,
+      "weight": 500,
       "description": "Wheat bread made by hand according to old recipes.",
       "url": "./img/products/15.jpg"
     },
