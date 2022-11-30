@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/bakery/static/css/main.d8d341ca.css",
-    "main.js": "/bakery/static/js/main.7354d6f2.js",
-    "static/media/bg_video1.mp4": "/bakery/static/media/bg_video1.7086d80283edd6fc380f.mp4",
-    "static/media/wholesale_bg.jpg": "/bakery/static/media/wholesale_bg.f2d93385a9c52351d32e.jpg",
-    "index.html": "/bakery/index.html",
-    "main.d8d341ca.css.map": "/bakery/static/css/main.d8d341ca.css.map",
-    "main.7354d6f2.js.map": "/bakery/static/js/main.7354d6f2.js.map"
+    "main.css": "/static/css/main.66b75473.css",
+    "main.js": "/static/js/main.aa62861f.js",
+    "static/media/bg_video1.mp4": "/static/media/bg_video1.7086d80283edd6fc380f.mp4",
+    "static/media/wholesale_bg.jpg": "/static/media/wholesale_bg.f2d93385a9c52351d32e.jpg",
+    "index.html": "/index.html",
+    "main.66b75473.css.map": "/static/css/main.66b75473.css.map",
+    "main.aa62861f.js.map": "/static/js/main.aa62861f.js.map"
   },
   "entrypoints": [
-    "static/css/main.d8d341ca.css",
-    "static/js/main.7354d6f2.js"
+    "static/css/main.66b75473.css",
+    "static/js/main.aa62861f.js"
   ]
 }
