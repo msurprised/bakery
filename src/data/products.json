@@ -8,7 +8,7 @@
       "price": 120,
       "weight": 150,
       "description": "Whole-grain puff with cream cheese and sun-dried tomatoes, with pumpkin, flax, sunflower and sesame seeds.",
-      "url": "/img/products/1.jpg"
+      "url": "./img/products/1.jpg"
     },
     {
       "id": 2,
@@ -17,7 +17,7 @@
       "price": 140,
       "weight": 120,
       "description": "Mascarpone cheese puff garnished with sea buckthorn marmalade and crushed pistachios.",
-      "url": "/img/products/2.jpg"
+      "url": "./img/products/2.jpg"
     },
     {
       "id": 3,
@@ -26,7 +26,7 @@
       "price": 90,
       "weight": 110,
       "description": "Classic croissant with cheese.",
-      "url": "/img/products/3.jpg"
+      "url": "./img/products/3.jpg"
     },
     {
       "id": 4,
@@ -35,7 +35,7 @@
       "price": 100,
       "weight": 140,
       "description": "Puff pastry roll with rum and raisins.",
-      "url": "/img/products/4.jpg"
+      "url": "./img/products/4.jpg"
     },
     {
       "id": 5,
@@ -44,7 +44,7 @@
       "price": 100,
       "weight": 150,
       "description": "Puff roll with cinnamon, decorated with cream cheese fudge and black sesame seeds.",
-      "url": "/img/products/5.jpg"
+      "url": "./img/products/5.jpg"
     },
     {
       "id": 6,
@@ -53,7 +53,7 @@
       "price": 140,
       "weight": 160,
       "description": "Creamy whey puff with crushed hazelnuts and lemon fudge.",
-      "url": "/img/products/6.jpg"
+      "url": "./img/products/6.jpg"
     },
     {
       "id": 7,
@@ -62,7 +62,7 @@
       "price": 120,
       "weight": 180,
       "description": "Puff with cheese and ham.",
-      "url": "/img/products/7.jpg"
+      "url": "./img/products/7.jpg"
     },
     {
       "id": 8,
@@ -71,7 +71,7 @@
       "price": 115,
       "weight": 120,
       "description": "Puff pastry basket with tender baked buttercream.",
-      "url": "/img/products/8.jpg"
+      "url": "./img/products/8.jpg"
     },
     {
       "id": 9,
@@ -80,7 +80,7 @@
       "price": 150,
       "weight": 200,
       "description": "A combination of chocolate and classic cake with the addition of blackcurrants, raisins and hazelnuts.",
-      "url": "/img/products/9.jpg"
+      "url": "./img/products/9.jpg"
     },
     {
       "id": 10,
@@ -89,7 +89,7 @@
       "price": 90,
       "weight": 90,
       "description": "Cake based on almond flour and lavender yoghurt, decorated with white chocolate and crushed lavender.",
-      "url": "/img/products/10.jpg"
+      "url": "./img/products/10.jpg"
     },
     {
       "id": 11,
@@ -98,7 +98,7 @@
       "price": 90,
       "weight": 90,
       "description": "Cake on almond flour with orange peel.",
-      "url": "/img/products/11.jpg"
+      "url": "./img/products/11.jpg"
     },
     {
       "id": 12,
@@ -107,7 +107,7 @@
       "price": 130,
       "weight": 140,
       "description": "Biscuit muffin with natural cocoa and cherry.",
-      "url": "/img/products/12.jpg"
+      "url": "./img/products/12.jpg"
     },
     {
       "id": 13,
@@ -116,7 +116,7 @@
       "price": 70,
       "weight": 60,
       "description": "Cookies with a soft layer of dark chocolate and raisins. There is one cookie in the package.",
-      "url": "/img/products/13.jpg"
+      "url": "./img/products/13.jpg"
     },
     {
       "id": 14,
@@ -125,7 +125,7 @@
       "price": 70,
       "weight": 60,
       "description": "Crumbly biscuits with white chocolate chips and dried cranberries. There is one cookie in the package.",
-      "url": "/img/products/14.jpg"
+      "url": "./img/products/14.jpg"
     },
     {
       "id": 15,
@@ -134,7 +134,7 @@
       "price": 110,
       "weight": 60,
       "description": "Wheat bread made by hand according to old recipes.",
-      "url": "/img/products/15.jpg"
+      "url": "./img/products/15.jpg"
     },
     {
       "id": 16,
@@ -143,7 +143,7 @@
       "price": 120,
       "weight": 500,
       "description": "Rye-wheat bread on bio-sourdough.",
-      "url": "/img/products/16.jpg"
+      "url": "./img/products/16.jpg"
     },
     {
       "id": 17,
@@ -152,7 +152,7 @@
       "price": 115,
       "weight": 500,
       "description": "Rye-wheat bread with sunflower seeds, prepared on rye bio-sourdough",
-      "url": "/img/products/17.jpg"
+      "url": "./img/products/17.jpg"
     },
     {
       "id": 18,
@@ -161,7 +161,7 @@
       "weight": 450,
       "price": 130,
       "description": "Rye-wheat grain bread, contains germinated grain.",
-      "url": "/img/products/18.jpg"
+      "url": "./img/products/18.jpg"
     },
     {
       "id": 19,
@@ -170,7 +170,7 @@
       "weight": 400,
       "price": 120,
       "description": "Soft wheat loaf mixed with milk.",
-      "url": "/img/products/19.jpg"
+      "url": "./img/products/19.jpg"
     },
     {
       "id": 20,
@@ -179,7 +179,7 @@
       "weight": 450,
       "price": 120,
       "description": "Rye-wheat bread with flax, sunflower and pumpkin seeds",
-      "url": "/img/products/20.jpg"
+      "url": "./img/products/20.jpg"
     },
     {
       "id": 21,
@@ -188,7 +188,7 @@
       "weight": 200,
       "price": 210,
       "description": "Marzipan biscuits with cheese cream and a layer of blueberries.",
-      "url": "/img/products/21.jpg"
+      "url": "./img/products/21.jpg"
     },
     {
       "id": 22,
@@ -197,7 +197,7 @@
       "price": 230,
       "weight": 220,
       "description": "Cake based on poppy seed biscuit with passion fruit puree and cream cheese cream.",
-      "url": "/img/products/22.jpg"
+      "url": "./img/products/22.jpg"
     },
     {
       "id": 23,
@@ -206,7 +206,7 @@
       "price": 210,
       "weight": 200,
       "description": "Light cake with sour cream according to a homemade recipe.",
-      "url": "/img/products/23.jpg"
+      "url": "./img/products/23.jpg"
     },
     {
       "id": 24,
@@ -215,7 +215,7 @@
       "price": 220,
       "weight": 200,
       "description": "Traditional puff pastry cake with custard.",
-      "url": "/img/products/24.jpg"
+      "url": "./img/products/24.jpg"
     },
     {
       "id": 25,
@@ -224,7 +224,7 @@
       "price": 210,
       "weight": 200,
       "description": "Cream cheese cream topped with passion fruit puree on biscuit.",
-      "url": "/img/products/25.jpg"
+      "url": "./img/products/25.jpg"
     },
     {
       "id": 26,
@@ -233,7 +233,7 @@
       "price": 230,
       "weight": 210,
       "description": "Fresh berries and mousse made from natural pistachio paste on a sand crumb base.",
-      "url": "/img/products/26.jpg"
+      "url": "./img/products/26.jpg"
     }
   ]
 }
