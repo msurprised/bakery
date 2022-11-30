@@ -40,7 +40,7 @@ const Navbar = () => {
             <img
               width={30}
               height={30}
-              src={`${isNavAnimated ? `logo_light.png` : `logo.png`}`}
+              src={`${isNavAnimated ? `.logo_light.png` : `.logo.png`}`}
               alt="logo"
             />
             <p>BAKERY</p>

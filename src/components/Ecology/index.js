@@ -39,7 +39,7 @@ const Ecology = () => {
             className={` ${style.area1} ${style.contentRow} ${
               firstRowDisplay ? style.contentRowShowed : ""
             }`}
-            src="/img/ecology_1.jpg"
+            src="./img/ecology_1.jpg"
             alt="ecology"
             id="ecology_1"
           />
@@ -73,7 +73,7 @@ const Ecology = () => {
           </div>
           <img className={`${style.area4} ${style.contentRow} ${
               secondRowDisplay ? style.contentRowShowed : ""
-            }`} src="/img/ecology_2.jpg" alt="ecology" />
+            }`} src="./img/ecology_2.jpg" alt="ecology" />
         </div>
       </div>
     </div>
