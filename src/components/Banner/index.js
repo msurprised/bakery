@@ -12,7 +12,12 @@ const Banner = () => {
     <Link to="/shop">
       <section className={style.bannerConainer}>
         <div className={style.bgContainer}>
-          <video src="/video/bg_video1.mp4" autoPlay loop muted />
+          <video
+            src={require(`../../video/bg_video1.mp4`)}
+            autoPlay
+            loop
+            muted
+          />
         </div>
         <div className={style.shadow}></div>
         <div className={style.bannerInfo}>
